@@ -1,0 +1,83 @@
+{
+  "kind": "command",
+  "results": [
+    {
+      "type": "story",
+      "id": 2154,
+      "updated_at": 1419348626000,
+      "before_id": 2168,
+      "after_id": 2182
+    }
+  ],
+  "activity": {
+    "kind": "story_move_activity",
+    "guid": "101_274",
+    "project_version": 274,
+    "message": "Robert Brewster moved this story before 'command-2'",
+    "highlight": "moved",
+    "changes": [
+      {
+        "kind": "story",
+        "change_type": "update",
+        "id": 2154,
+        "original_values": {
+          "updated_at": 1419348621000,
+          "before_id": 2147,
+          "after_id": 2165
+        },
+        "new_values": {
+          "updated_at": 1419348626000,
+          "before_id": 2168,
+          "after_id": 2182
+        },
+        "name": "iter4-2",
+        "story_type": "feature"
+      }
+    ],
+    "primary_resources": [
+      {
+        "kind": "story",
+        "id": 2154,
+        "name": "iter4-2",
+        "story_type": "feature",
+        "url": "http://localhost:3000/story/show/2154"
+      }
+    ],
+    "project": {
+      "kind": "project",
+      "id": 101,
+      "name": "Skynet Defense Coordination System"
+    },
+    "performed_by": {
+      "kind": "person",
+      "id": 202,
+      "name": "Robert Brewster",
+      "initials": "rb"
+    },
+    "occurred_at": 1419348626000
+  },
+  "mutandum": [
+    {
+      "type": "story",
+      "id": 2154,
+      "updated_at": 1419348621000,
+      "before_id": 2147,
+      "after_id": 2165
+    }
+  ],
+  "parameters": {
+    "group": "unscheduled",
+    "ids": [
+      2154
+    ],
+    "after_id": 2182,
+    "before_id": 2168
+  },
+  "person_id": 202,
+  "type": "multi_story_move",
+  "command_uuid": "264c7c61-cb7a-4d31-bf62-c6a90333f5db",
+  "project": {
+    "id": 101,
+    "version": 274
+  }
+}

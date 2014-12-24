@@ -1,0 +1,99 @@
+{
+  "kind": "command",
+  "results": [
+    {
+      "type": "story",
+      "id": 2136,
+      "current_state": "started",
+      "owned_by_id": 202,
+      "owner_ids": [
+        202
+      ],
+      "updated_at": 1419348636000,
+      "before_id": 2200,
+      "after_id": 2183
+    }
+  ],
+  "activity": {
+    "kind": "story_update_activity",
+    "guid": "101_276",
+    "project_version": 276,
+    "message": "Robert Brewster started this chore",
+    "highlight": "started",
+    "changes": [
+      {
+        "kind": "story",
+        "change_type": "update",
+        "id": 2136,
+        "original_values": {
+          "current_state": "unscheduled",
+          "owned_by_id": null,
+          "owner_ids": [],
+          "updated_at": 1413043200000,
+          "before_id": 2135,
+          "after_id": 2137
+        },
+        "new_values": {
+          "current_state": "started",
+          "owned_by_id": 202,
+          "owner_ids": [
+            202
+          ],
+          "updated_at": 1419348636000,
+          "before_id": 2200,
+          "after_id": 2183
+        },
+        "name": "iter2-1",
+        "story_type": "chore"
+      }
+    ],
+    "primary_resources": [
+      {
+        "kind": "story",
+        "id": 2136,
+        "name": "iter2-1",
+        "story_type": "chore",
+        "url": "http://localhost:3000/story/show/2136"
+      }
+    ],
+    "project": {
+      "kind": "project",
+      "id": 101,
+      "name": "Skynet Defense Coordination System"
+    },
+    "performed_by": {
+      "kind": "person",
+      "id": 202,
+      "name": "Robert Brewster",
+      "initials": "rb"
+    },
+    "occurred_at": 1419348636000
+  },
+  "mutandum": [
+    {
+      "type": "story",
+      "id": 2136,
+      "current_state": "unscheduled",
+      "owned_by_id": -1,
+      "owner_ids": [],
+      "updated_at": 1413043200000,
+      "before_id": 2135,
+      "after_id": 2137
+    }
+  ],
+  "parameters": {
+    "current_state": "started",
+    "owner_ids": [
+      202
+    ],
+    "id": 2136,
+    "owned_by_id": 202
+  },
+  "person_id": 202,
+  "type": "story_update",
+  "command_uuid": "14b44d7e-9725-4c4b-a5d1-e1505a0d6cc3",
+  "project": {
+    "id": 101,
+    "version": 276
+  }
+}

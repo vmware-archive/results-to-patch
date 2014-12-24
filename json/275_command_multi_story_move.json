@@ -1,0 +1,87 @@
+{
+  "kind": "command",
+  "results": [
+    {
+      "type": "story",
+      "id": 2148,
+      "current_state": "unstarted",
+      "updated_at": 1419348631000,
+      "before_id": 2173,
+      "after_id": 2174
+    }
+  ],
+  "activity": {
+    "kind": "story_move_activity",
+    "guid": "101_275",
+    "project_version": 275,
+    "message": "Robert Brewster moved and scheduled this story before 'don't confuse volcanoes with missle launches'",
+    "highlight": "moved and scheduled",
+    "changes": [
+      {
+        "kind": "story",
+        "change_type": "update",
+        "id": 2148,
+        "original_values": {
+          "current_state": "unscheduled",
+          "updated_at": 1413648000000,
+          "before_id": 2146,
+          "after_id": 2149
+        },
+        "new_values": {
+          "current_state": "unstarted",
+          "updated_at": 1419348631000,
+          "before_id": 2173,
+          "after_id": 2174
+        },
+        "name": "iter3-3",
+        "story_type": "feature"
+      }
+    ],
+    "primary_resources": [
+      {
+        "kind": "story",
+        "id": 2148,
+        "name": "iter3-3",
+        "story_type": "feature",
+        "url": "http://localhost:3000/story/show/2148"
+      }
+    ],
+    "project": {
+      "kind": "project",
+      "id": 101,
+      "name": "Skynet Defense Coordination System"
+    },
+    "performed_by": {
+      "kind": "person",
+      "id": 202,
+      "name": "Robert Brewster",
+      "initials": "rb"
+    },
+    "occurred_at": 1419348631000
+  },
+  "mutandum": [
+    {
+      "type": "story",
+      "id": 2148,
+      "current_state": "unscheduled",
+      "updated_at": 1413648000000,
+      "before_id": 2146,
+      "after_id": 2149
+    }
+  ],
+  "parameters": {
+    "group": "current",
+    "ids": [
+      2148
+    ],
+    "after_id": 2174,
+    "before_id": 2173
+  },
+  "person_id": 202,
+  "type": "multi_story_move",
+  "command_uuid": "05774698-6888-4c7a-abd0-9f16dd102cca",
+  "project": {
+    "id": 101,
+    "version": 275
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "kind": "command",
+  "results": [
+    {
+      "type": "story",
+      "id": 2136,
+      "current_state": "accepted",
+      "accepted_at": 1419348640000,
+      "updated_at": 1419348641000,
+      "before_id": 2171,
+      "after_id": 2164
+    }
+  ],
+  "activity": {
+    "kind": "story_update_activity",
+    "guid": "101_277",
+    "project_version": 277,
+    "message": "Robert Brewster accepted this chore",
+    "highlight": "accepted",
+    "changes": [
+      {
+        "kind": "story",
+        "change_type": "update",
+        "id": 2136,
+        "original_values": {
+          "current_state": "started",
+          "accepted_at": null,
+          "updated_at": 1419348636000,
+          "before_id": 2200,
+          "after_id": 2183
+        },
+        "new_values": {
+          "current_state": "accepted",
+          "accepted_at": 1419348640000,
+          "updated_at": 1419348641000,
+          "before_id": 2171,
+          "after_id": 2164
+        },
+        "name": "iter2-1",
+        "story_type": "chore"
+      }
+    ],
+    "primary_resources": [
+      {
+        "kind": "story",
+        "id": 2136,
+        "name": "iter2-1",
+        "story_type": "chore",
+        "url": "http://localhost:3000/story/show/2136"
+      }
+    ],
+    "project": {
+      "kind": "project",
+      "id": 101,
+      "name": "Skynet Defense Coordination System"
+    },
+    "performed_by": {
+      "kind": "person",
+      "id": 202,
+      "name": "Robert Brewster",
+      "initials": "rb"
+    },
+    "occurred_at": 1419348641000
+  },
+  "mutandum": [
+    {
+      "type": "story",
+      "id": 2136,
+      "current_state": "started",
+      "accepted_at": null,
+      "updated_at": 1419348636000,
+      "before_id": 2200,
+      "after_id": 2183
+    }
+  ],
+  "parameters": {
+    "current_state": "accepted",
+    "accepted_at": 1419348640000,
+    "id": 2136
+  },
+  "person_id": 202,
+  "type": "story_update",
+  "command_uuid": "66c02025-665e-44b8-af0e-a87e6301f990",
+  "project": {
+    "id": 101,
+    "version": 277
+  }
+}

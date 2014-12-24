@@ -1,0 +1,75 @@
+{
+  "kind": "command",
+  "results": [
+    {
+      "type": "story",
+      "id": 2168,
+      "estimate": 8,
+      "updated_at": 1419348661000
+    }
+  ],
+  "activity": {
+    "kind": "story_update_activity",
+    "guid": "101_278",
+    "project_version": 278,
+    "message": "Robert Brewster estimated this feature as 8 points",
+    "highlight": "estimated",
+    "changes": [
+      {
+        "kind": "story",
+        "change_type": "update",
+        "id": 2168,
+        "original_values": {
+          "estimate": null,
+          "updated_at": 1419347678000
+        },
+        "new_values": {
+          "estimate": 8,
+          "updated_at": 1419348661000
+        },
+        "name": "command-2",
+        "story_type": "feature"
+      }
+    ],
+    "primary_resources": [
+      {
+        "kind": "story",
+        "id": 2168,
+        "name": "command-2",
+        "story_type": "feature",
+        "url": "http://localhost:3000/story/show/2168"
+      }
+    ],
+    "project": {
+      "kind": "project",
+      "id": 101,
+      "name": "Skynet Defense Coordination System"
+    },
+    "performed_by": {
+      "kind": "person",
+      "id": 202,
+      "name": "Robert Brewster",
+      "initials": "rb"
+    },
+    "occurred_at": 1419348662000
+  },
+  "mutandum": [
+    {
+      "type": "story",
+      "id": 2168,
+      "estimate": -1,
+      "updated_at": 1419347678000
+    }
+  ],
+  "parameters": {
+    "estimate": 8,
+    "id": 2168
+  },
+  "person_id": 202,
+  "type": "story_update",
+  "command_uuid": "5ec65950-b417-4db4-b709-fcdb4378f8fa",
+  "project": {
+    "id": 101,
+    "version": 278
+  }
+}
