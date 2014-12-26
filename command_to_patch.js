@@ -1,49 +1,70 @@
 var pointer = require('json-pointer');
 var _ = require('lodash');
 
-function commandToPatch(project, command) {
+module.exports = function(project, command) {
   var patch = [];
+  var results = command.results;
+  var resultsLen = results.length;
 
-  var id = pointer.get(command, '/results/0/id');
-  var stories = pointer.get(project, '/project/stories');
-  var story = _.findWhere(stories, {id: id});
-  var index = stories.indexOf(story);
-  var storyPath = '/project/stories/' + index;
+  for (var i = 0; i < resultsLen; i++) {
+    var result = results[i]
+    var index = indexOfStory(project, result.id);
+    var original = project.stories[index];
+    var storyPath = '/stories/' + index;
 
-  var updatedAt = pointer.get(command, '/results/0/updated_at');
-  patch.push({op: 'replace', path: storyPath + '/updated_at', value: updatedAt});
+    function patchAttr(attr) {
+      if (result[attr]) {
+        if (!original[attr]) {
+          patch.push({op: 'add', path: storyPath + '/' + attr, value: result[attr]});
+        }
+        else if (result[attr] !== original[attr]) {
+          patch.push({op: 'replace', path: storyPath + '/' + attr, value: result[attr]});
+        }
+      }
+    }
 
-  var estimate = pointer.get(command, '/results/0/estimate');
-  patch.push({op: 'add', path: storyPath + '/estimate', value: estimate});
+    patchAttr('id');
+    patchAttr('created_at');
+    patchAttr('updated_at');
+    patchAttr('accepted_at');
+    patchAttr('estimate');
+    patchAttr('story_type');
+    patchAttr('name');
+    patchAttr('description');
+    patchAttr('current_state');
+    patchAttr('requested_by_id');
+    patchAttr('owner_ids');
+    patchAttr('label_ids');
+    patchAttr('tasks');
+    patchAttr('follower_ids');
+    patchAttr('comments');
+    patchAttr('owned_by_id');
 
-  var version = pointer.get(command, '/project/version');
-  patch.push({op: 'replace', path: '/project/version', value: version});
-
-  return patch;
-}
-
-var StorySchema = ResultSchema.extend({
-  type: 'story',
-
-
-});
-
-var StoryResultParser = ResultParser.extend({
-  type: 'story',
-
-  schema: {
-    updated_at: SchemaTypes.Number,
-    current_state: SchemaTypes.oneOf(['started', 'unscheduled']),
+    if (result.after_id) {
+      var afterIndex = indexOfStory(project, result.after_id) + 1;
+      patch.push({op: 'move', path: '/stories/' + afterIndex, from: storyPath});
+    }
+    else if (result.before_id) {
+      var beforeIndex = indexOfStory(project, result.before_id);
+      patch.push({op: 'move', path: '/stories/' + beforeIndex, from: storyPath});
+    }
   }
 
-  pointer: '/project/stories',
+  var version = pointer.get(command, '/project/version');
+  patch.push({op: 'replace', path: '/version', value: command.project.version});
 
+  return patch;
+};
 
-});
+function indexOfStory(project, id) {
+  var stories = project.stories;
+  var storiesLen = stories.length;
 
-ResultAttribute.extend({
-  type: 'story',
+  for (var i = 0; i < storiesLen; i++) {
+    if (stories[i].id === id) {
+      return i;
+    }
+  }
+  return -1;
+};
 
-});
-
-module.exports = commandToPatch;
