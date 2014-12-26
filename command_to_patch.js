@@ -23,6 +23,10 @@ module.exports = function(project, command) {
       }
     }
 
+    if (result.created_at) {
+      patch.push()
+    }
+
     patchAttr('id');
     patchAttr('created_at');
     patchAttr('updated_at');
@@ -50,7 +54,6 @@ module.exports = function(project, command) {
     }
   }
 
-  var version = pointer.get(command, '/project/version');
   patch.push({op: 'replace', path: '/version', value: command.project.version});
 
   return patch;

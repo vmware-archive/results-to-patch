@@ -1,103 +1,31 @@
-var expect = require('chai').expect;
-var helper = require('./helper');
-var _ = require('lodash');
-var jsonPatch = require('fast-json-patch');
-var commandToPatch = require('../command_to_patch.js');
+var chai             = require('chai');
+var expect           = chai.expect;
+var commandToPatch   = require('../command_to_patch.js');
+var customAssertions = require('./custom_assertions');
+var helper           = require('./helper');
+var project          = helper.project;
+var command          = helper.command;
 
-describe('story_update', function() {
-  describe('278 estimating a story', function() {
-    var before, after, command;
+chai.Assertion.addMethod('patch', customAssertions.patch);
 
-    beforeEach(function() {
-      before = helper.loadFixture('277_project').project;
-      after = helper.loadFixture('278_project').project;
-      command = helper.loadFixture('278_command');
-    });
-
-    it('creates a patch', function() {
-      var patch = commandToPatch(before, command);
-      var patched = helper.patch(before, patch);
-      expect(patched).to.deep.equal(after);
-    });
+describe('commandToPatch', function() {
+  it('estimates a story', function() {
+    expect(commandToPatch(project(277), command(278))).to.patch(project(277), project(278));
   });
 
-  describe('277 accepting a story', function() {
-    var before, after, command;
-
-    beforeEach(function() {
-      before = helper.loadFixture('276_project').project;
-      after = helper.loadFixture('277_project').project;
-      command = helper.loadFixture('277_command');
-    });
-
-    it('creates a patch', function() {
-      var patch = commandToPatch(before, command);
-      var patched = helper.patch(before, patch);
-      var actualIndex = helper.indexOfStory(patched, 2136);
-      var expectedIndex = helper.indexOfStory(after, 2136);
-
-      expect(actualIndex).to.equal(expectedIndex);
-      expect(patched).to.deep.equal(after);
-    });
+  it('accepts a story', function() {
+    expect(commandToPatch(project(276), command(277))).to.patch(project(276), project(277));
   });
 
-  describe('276 starting a story', function() {
-    var before, after, command;
-
-    beforeEach(function() {
-      before = helper.loadFixture('275_project').project;
-      after = helper.loadFixture('276_project').project;
-      command = helper.loadFixture('276_command');
-    });
-
-    it('creates a patch', function() {
-      var patch = commandToPatch(before, command);
-      var patched = helper.patch(before, patch);
-      var actualIndex = helper.indexOfStory(patched, 2136);
-      var expectedIndex = helper.indexOfStory(after, 2136);
-
-      expect(actualIndex).to.equal(expectedIndex);
-      expect(patched).to.deep.equal(after);
-    });
+  it('starts a story', function() {
+    expect(commandToPatch(project(276), command(277))).to.patch(project(276), project(277));
   });
 
-  describe('275 moving a story between panels', function() {
-    var before, after, command;
-
-    beforeEach(function() {
-      before = helper.loadFixture('274_project').project;
-      after = helper.loadFixture('275_project').project;
-      command = helper.loadFixture('275_command');
-    });
-
-    it('creates a patch', function() {
-      var patch = commandToPatch(before, command);
-      var patched = helper.patch(before, patch);
-      var actualIndex = helper.indexOfStory(patched, 2136);
-      var expectedIndex = helper.indexOfStory(after, 2136);
-
-      expect(actualIndex).to.equal(expectedIndex);
-      expect(patched).to.deep.equal(after);
-    });
+  it('moves a story between panels', function() {
+    expect(commandToPatch(project(275), command(276))).to.patch(project(275), project(276));
   });
 
-  describe('274 moving a story', function() {
-    var before, after, command;
-
-    beforeEach(function() {
-      before = helper.loadFixture('273_project').project;
-      after = helper.loadFixture('274_project').project;
-      command = helper.loadFixture('274_command');
-    });
-
-    it('creates a patch', function() {
-      var patch = commandToPatch(before, command);
-      var patched = helper.patch(before, patch);
-      var actualIndex = helper.indexOfStory(patched, 2136);
-      var expectedIndex = helper.indexOfStory(after, 2136);
-
-      expect(actualIndex).to.equal(expectedIndex);
-      expect(patched).to.deep.equal(after);
-    });
+  it('moves a story', function() {
+    expect(commandToPatch(project(274), command(275))).to.patch(project(274), project(275));
   });
 });

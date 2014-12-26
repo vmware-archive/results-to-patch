@@ -5,6 +5,14 @@ var _ = require('lodash');
 var jsonPatch = require('fast-json-patch');
 
 var helper = {
+  project: function(version) {
+    return helper.loadFixture(version + '_project').project;
+  },
+
+  command: function(version) {
+    return helper.loadFixture(version + '_command');
+  },
+
   loadFixture: function(searchString) {
       var globString = path.resolve(__dirname, '../json/' + searchString + '*.json'),
           file = _.first(glob.sync(globString)),
