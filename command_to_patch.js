@@ -4,6 +4,7 @@ var Project = require('./lib/project');
 
 module.exports = patcher([
   commentDeletes,
+  taskDeletes,
   storyDeletes,
   taskAttrs,
   labelAttrs,
@@ -177,6 +178,23 @@ function taskAttrs(project, command) {
 
       patch.push(
         {op: 'add', path: paths.storyTask(storyIndex, newIndex), value: _.pick(result, TASK_ATTRS)}
+      );
+    });
+
+  return patch;
+}
+
+function taskDeletes(project, command) {
+  var patch = [];
+
+  command.results
+    .filter(typeTask)
+    .filter(isDeleted)
+    .forEach(function(result) {
+      var path = paths.storyTask.apply(paths, project.indexOfStoryTaskById(result.id));
+
+      patch.push(
+        {op: 'remove', path: path}
       );
     });
 
