@@ -1,31 +1,23 @@
 var chai             = require('chai');
 var expect           = chai.expect;
-var commandToPatch   = require('../command_to_patch.js');
 var customAssertions = require('./custom_assertions');
 var helper           = require('./helper');
-var project          = helper.project;
-var command          = helper.command;
+var fs               = require('fs');
+var commandToPatch   = require('../command_to_patch.js');
 
 chai.Assertion.addMethod('patch', customAssertions.patch);
 
-describe('commandToPatch', function() {
-  it('estimates a story', function() {
-    expect(commandToPatch(project(277), command(278))).to.patch(project(277), project(278));
-  });
+var snapshots = fs.readdirSync('./test/fixtures');
 
-  it('accepts a story', function() {
-    expect(commandToPatch(project(276), command(277))).to.patch(project(276), project(277));
-  });
+snapshots.forEach(function(name) {
+  it('converts ' + name + ' to JSON patch', function() {
+    var snapshot = helper.loadSnapshot(name);
+    var before = snapshot.before;
+    var after = snapshot.after;
+    var command = snapshot.command.stale_commands[0];
 
-  it('starts a story', function() {
-    expect(commandToPatch(project(276), command(277))).to.patch(project(276), project(277));
-  });
-
-  it('moves a story between panels', function() {
-    expect(commandToPatch(project(275), command(276))).to.patch(project(275), project(276));
-  });
-
-  it('moves a story', function() {
-    expect(commandToPatch(project(274), command(275))).to.patch(project(274), project(275));
+    expect(
+      commandToPatch(before, command)
+    ).to.patch(before, after);
   });
 });

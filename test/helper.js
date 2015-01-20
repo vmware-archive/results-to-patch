@@ -1,23 +1,22 @@
-var fs = require('fs');
-var path = require('path');
-var glob = require('glob');
-var _ = require('lodash');
+var fs        = require('fs');
+var path      = require('path');
+var _         = require('lodash');
 var jsonPatch = require('fast-json-patch');
 
 var helper = {
-  project: function(version) {
-    return helper.loadFixture(version + '_project').project;
+  loadSnapshot: function(name) {
+    var snapshotPath = path.resolve(__dirname, 'fixtures/' + name);
+
+      return {
+        name: name,
+        before: helper.loadJSON(snapshotPath + '/before.json'),
+        after: helper.loadJSON(snapshotPath+ '/after.json'),
+        command: helper.loadJSON(snapshotPath+ '/command.json')
+      }
   },
 
-  command: function(version) {
-    return helper.loadFixture(version + '_command');
-  },
-
-  loadFixture: function(searchString) {
-      var globString = path.resolve(__dirname, '../json/' + searchString + '*.json'),
-          file = _.first(glob.sync(globString)),
-          text = fs.readFileSync(file, 'utf8');
-      return JSON.parse(text);
+  loadJSON: function(path) {
+    return JSON.parse(fs.readFileSync(path, 'utf8'));
   },
 
   clone: function(json) {
