@@ -5,6 +5,8 @@ var Project = require('./lib/project');
 module.exports = patcher([
   commentDeletes,
   storyDeletes,
+  taskAttrs,
+  labelAttrs,
   storyAttrs,
   commentAttrs,
   storyMoves,
@@ -23,7 +25,7 @@ function storyMoves(project, command) {
   var patch = [];
 
   command.results
-    .filter(isStory)
+    .filter(typeStory)
     .forEach(function(result) {
       var index = project.indexOfStoryById(result.id);
 
@@ -61,7 +63,7 @@ function storyDeletes(project, command) {
   var patch = [];
 
   command.results
-    .filter(isStory)
+    .filter(typeStory)
     .filter(isDeleted)
     .forEach(function(result) {
       patch.push(
@@ -95,7 +97,7 @@ function storyAttrs(project, command) {
   var patch = [];
 
   command.results
-    .filter(isStory)
+    .filter(typeStory)
     .filter(notDeleted)
     .forEach(function(result) {
       var index = project.indexOfStoryById(result.id);
@@ -138,11 +140,54 @@ function storyAttrs(project, command) {
   return patch;
 }
 
+function labelAttrs(project, command) {
+  var patch = [];
+
+  command.results
+    .filter(typeLabel)
+    .filter(notDeleted)
+    .forEach(function(result) {
+      var newIndex = _.sortedIndex(project.labelNames(), result.name);
+
+      patch.push(
+        {op: 'add', path: paths.label(newIndex), value: _.pick(result, 'id', 'name', 'created_at', 'updated_at')}
+      );
+    });
+
+  return patch;
+}
+
+var TASK_ATTRS = [
+  'id',
+  'description',
+  'complete',
+  'created_at',
+  'updated_at'
+];
+
+function taskAttrs(project, command) {
+  var patch = [];
+
+  command.results
+    .filter(typeTask)
+    .filter(notDeleted)
+    .forEach(function(result) {
+      var newIndex = result.position - 1;
+      var storyIndex = project.indexOfStoryById(result.story_id);
+
+      patch.push(
+        {op: 'add', path: paths.storyTask(storyIndex, newIndex), value: _.pick(result, TASK_ATTRS)}
+      );
+    });
+
+  return patch;
+}
+
 function commentAttrs(project, command) {
   var patch = [];
 
   command.results
-    .filter(isComment)
+    .filter(typeComment)
     .filter(notDeleted)
     .forEach(function(result) {
       var storyIndex = project.indexOfStoryById(result.story_id);
@@ -174,7 +219,7 @@ function commentDeletes(project, command) {
   var patch = [];
 
   command.results
-    .filter(isComment)
+    .filter(typeComment)
     .filter(isDeleted)
     .forEach(function(result) {
       var path = paths.storyComment.apply(paths, project.indexOfStoryCommentById(result.id));
@@ -187,12 +232,20 @@ function commentDeletes(project, command) {
   return patch;
 }
 
-function isStory(result) {
+function typeStory(result) {
   return result.type === 'story';
 }
 
-function isComment(result) {
+function typeComment(result) {
   return result.type === 'comment';
+}
+
+function typeLabel(result) {
+  return result.type === 'label';
+}
+
+function typeTask(result) {
+  return result.type === 'task';
 }
 
 function isDeleted(result) {
