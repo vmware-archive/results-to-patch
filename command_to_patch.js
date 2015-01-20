@@ -1,7 +1,8 @@
 var _ = require('lodash');
+var paths = require('./lib/paths');
+var Project = require('./lib/project');
 
 module.exports = patcher([
-  // {filter: [isComment, isDelete], handler: deleteComment}
   commentDeletes,
   storyDeletes,
   storyAttrs,
@@ -9,21 +10,6 @@ module.exports = patcher([
   storyMoves,
   projectVersion
 ]);
-
-var paths = {
-  version: function() {
-    return '/version'
-  },
-  story: function(storyIndex) {
-    return '/stories/' + storyIndex;
-  },
-  storyAttr: function(storyIndex, attr) {
-    return '/stories/' + storyIndex + '/' + attr;
-  },
-  storyComment: function(storyIndex, commentIndex) {
-    return '/stories/' + storyIndex + '/comments/' + commentIndex;
-  }
-}
 
 function projectVersion(project, command) {
   return [{
@@ -39,14 +25,14 @@ function storyMoves(project, command) {
   command.results
     .filter(isStory)
     .forEach(function(result) {
-      var index = indexOfStory(project, result.id);
+      var index = project.indexOfStoryById(result.id);
 
       if (index === -1) {
         return;
       }
 
       if (result.after_id) {
-        var newIndex = indexOfStory(project, result.after_id);
+        var newIndex = project.indexOfStoryById(result.after_id);
         if (newIndex < index) {
           newIndex += 1;
         }
@@ -58,7 +44,7 @@ function storyMoves(project, command) {
         });
       }
       else if (result.before_id) {
-        var beforeIndex = indexOfStory(project, result.before_id);
+        var beforeIndex = project.indexOfStoryById(result.before_id);
 
         patch.push({
           op: 'move',
@@ -79,7 +65,7 @@ function storyDeletes(project, command) {
     .filter(isDeleted)
     .forEach(function(result) {
       patch.push(
-        {op: 'remove', path: paths.story(indexOfStory(project, result.id))}
+        {op: 'remove', path: paths.story(project.indexOfStoryById(result.id))}
       );
     });
 
@@ -105,8 +91,6 @@ var STORY_ATTRS = [
   'comments'
 ];
 
-// function simpleAttr(findStoryAttrPath, '')
-
 function storyAttrs(project, command) {
   var patch = [];
 
@@ -114,12 +98,12 @@ function storyAttrs(project, command) {
     .filter(isStory)
     .filter(notDeleted)
     .forEach(function(result) {
-      var index = indexOfStory(project, result.id);
-      var original = project.stories[index];
+      var index = project.indexOfStoryById(result.id);
+      var original = project.storyById(result.id);
 
       if (!original) {
         if (result.after_id) {
-          var newIndex = indexOfStory(project, result.after_id) + 1;
+          var newIndex = project.indexOfStoryById(result.after_id) + 1;
 
           patch.push({
             op: 'add',
@@ -161,8 +145,8 @@ function commentAttrs(project, command) {
     .filter(isComment)
     .filter(notDeleted)
     .forEach(function(result) {
-      var storyIndex = indexOfStory(project, result.story_id);
-      var story = project.stories[storyIndex];
+      var storyIndex = project.indexOfStoryById(result.story_id);
+      var story = project.storyById(result.story_id);
       var commentIndex = 0;
       var commentPath = paths.storyComment(storyIndex, commentIndex);
       var originalComment = story.comments[commentIndex];
@@ -193,10 +177,11 @@ function commentDeletes(project, command) {
     .filter(isComment)
     .filter(isDeleted)
     .forEach(function(result) {
-      patch.push({
-        op: 'remove',
-        path: commentPathById(project, result.id)
-      });
+      var path = paths.storyComment.apply(paths, project.indexOfStoryCommentById(result.id));
+
+      patch.push(
+        {op: 'remove', path: path}
+      );
     });
 
   return patch;
@@ -219,45 +204,11 @@ function notDeleted(result) {
 }
 
 function patcher(patchers) {
-  return function(project, command) {
+  return function(projectJSON, command) {
+    var project = new Project(projectJSON);
+
     return patchers.reduce(function(patch, patcher) {
       return patch.concat(patcher(project, command));
     }, []);
-  }
-}
-
-function indexOfStory(project, id) {
-  var stories = project.stories;
-  var storiesLen = stories.length;
-
-  for (var i = 0; i < storiesLen; i++) {
-    if (stories[i].id === id) {
-      return i;
-    }
-  }
-  return -1;
-};
-
-function indexOfComment(story, id) {
-  var comments = story.comments;
-  var commentsLen = comments.length;
-
-  for (var i = 0; i < commentsLen; i++) {
-    if (comments[i].id === id) {
-      return i;
-    }
-  }
-  return -1;
-}
-
-function commentPathById(project, id) {
-  var stories = project.stories;
-  for (var i = 0; i < stories.length; i++) {
-    var comments = stories[i].comments;
-    for (var j = 0; j < comments.length; j++) {
-      if (comments[j] && comments[j].id === id) {
-        return paths.storyComment(i, j);
-      }
-    }
   }
 }
