@@ -6,9 +6,9 @@ module.exports = patcher([
   commentDeletes,
   taskDeletes,
   storyDeletes,
-  taskAttrs,
   labelAttrs,
   storyAttrs,
+  taskAttrs,
   commentAttrs,
   storyMoves,
   projectVersion
@@ -215,17 +215,40 @@ function commentAttrs(project, command) {
       var originalComment = story.comments[commentIndex];
 
       if (!originalComment) {
+        var addOpValue = _.pick(result,
+          'id',
+          'text',
+          'person_id',
+          'created_at',
+          'updated_at'
+        );
+
+        if (result.google_attachment_ids && result.google_attachment_ids.length) {
+          addOpValue.google_attachments = [];
+
+          result.google_attachment_ids.forEach(function(gaId) {
+            var gaResult = _.where(command.results, {type: 'google_attachment', id: gaId})[0];
+
+            addOpValue.google_attachments.push(_.pick(gaResult,
+              'id',
+              'google_kind',
+              'person_id',
+              'resource_id',
+              'alternate_link',
+              'google_id',
+              'title'
+            ));
+          });
+
+        }
+
         patch.push({
-          op: 'add', path: commentPath,
-          value: _.pick(result,
-            'id',
-            'text',
-            'person_id',
-            'created_at',
-            'updated_at',
-            'file_attachments',
-            'google_attachments'
-          )
+          op: 'add',
+          path: commentPath,
+          value: _.defaults(addOpValue, {
+            google_attachments: [],
+            file_attachments: []
+          })
         });
       }
     });
@@ -264,6 +287,10 @@ function typeLabel(result) {
 
 function typeTask(result) {
   return result.type === 'task';
+}
+
+function typeGoogleAttachment(result) {
+  return result.type === 'google_attachment';
 }
 
 function isDeleted(result) {
