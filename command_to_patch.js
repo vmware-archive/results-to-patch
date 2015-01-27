@@ -6,6 +6,7 @@ module.exports = patcher([
   commentDeletes,
   taskDeletes,
   storyDeletes,
+  epicDeletes,
   labelAttrs,
   storyAttrs,
   epicAttrs,
@@ -219,6 +220,21 @@ function epicAttrs(project, command) {
           value: _.defaults(_.pick(result, EPIC_ATTRS), {comments: []})
         });
       }
+    });
+
+  return patch;
+}
+
+function epicDeletes(project, command) {
+  var patch = [];
+
+  command.results
+    .filter(typeEpic)
+    .filter(isDeleted)
+    .forEach(function(result) {
+      patch.push(
+        {op: 'remove', path: project.pathOfEpicById(result.id)}
+      );
     });
 
   return patch;
