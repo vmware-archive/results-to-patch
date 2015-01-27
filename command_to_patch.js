@@ -8,6 +8,7 @@ module.exports = patcher([
   storyDeletes,
   labelAttrs,
   storyAttrs,
+  epicAttrs,
   taskAttrs,
   commentAttrs,
   storyMoves,
@@ -201,6 +202,53 @@ function taskDeletes(project, command) {
   return patch;
 }
 
+
+function epicAttrs(project, command) {
+  var patch = [];
+
+  command.results
+    .filter(typeEpic)
+    .filter(notDeleted)
+    .forEach(function(result) {
+      var path = paths.epic(project.indexOfEpicById(result.id));
+      var original = project.get(path);
+
+      if (original) {
+        [
+          'id',
+          'created_at',
+          'updated_at',
+          'name',
+          'label_id',
+          'follower_ids',
+          'past_done_stories_count',
+          'past_done_stories_no_point_count',
+          'past_done_story_estimates'
+        ].forEach(function(attr) {
+
+          if (_.has(result, attr)) {
+            if (_.has(original, attr)) {
+              patch.push(
+                {op: 'replace', path: path + '/' + attr, value: result[attr]}
+              );
+            }
+          }
+
+          // if (!original || !_.has(original, attr)) {
+          // }
+          // patch.push(
+          //   {op: 'replace', path: paths.storyTask(storyIndex, newIndex), value: _.pick(result, TASK_ATTRS)}
+          // );
+        })
+      }
+
+
+
+    });
+
+  return patch;
+}
+
 function commentAttrs(project, command) {
   var patch = [];
 
@@ -208,12 +256,27 @@ function commentAttrs(project, command) {
     .filter(typeComment)
     .filter(notDeleted)
     .forEach(function(result) {
-      var storyIndex = project.indexOfStoryById(result.story_id);
-      var story = project.storyById(result.story_id);
-      var commentIndex = 0;
-      var commentPath = paths.storyComment(storyIndex, commentIndex);
-      var originalComment = story.comments[commentIndex];
 
+      // new story comment
+      // new epic comment
+      // new comment existing story
+      // new comment existing epic
+      // update comment existing story
+      // update comment existing epic
+
+      var commentPath;
+
+      var storyIndex = project.indexOfStoryById(result.story_id);
+      if (storyIndex !== -1) {
+        commentPath = paths.storyComment(storyIndex, 0);
+      }
+
+      var epicIndex = project.indexOfEpicById(result.epic_id);
+      if (epicIndex !== -1) {
+        commentPath = paths.epicComment(epicIndex, 0);
+      }
+
+      var originalComment = project.get(commentPath);
       if (!originalComment) {
         var addOpValue = _.pick(result,
           'id',
@@ -239,7 +302,30 @@ function commentAttrs(project, command) {
               'title'
             ));
           });
+        }
 
+        if (result.file_attachment_ids && result.file_attachment_ids.length) {
+          addOpValue.file_attachments = [];
+
+          result.file_attachment_ids.forEach(function(fileId) {
+            var fileResult = _.where(command.results, {type: 'file_attachment', id: fileId})[0];
+
+            addOpValue.file_attachments.push(_.pick(fileResult,
+              'id',
+              'filename',
+              'uploader_id',
+              'created_at',
+              'content_type',
+              'size',
+              'download_url',
+              'uploaded',
+              'thumbnailable',
+              'height',
+              'width',
+              'thumbnail_url',
+              'big_url'
+            ));
+          });
         }
 
         patch.push({
@@ -275,6 +361,10 @@ function commentDeletes(project, command) {
 
 function typeStory(result) {
   return result.type === 'story';
+}
+
+function typeEpic(result) {
+  return result.type === 'epic';
 }
 
 function typeComment(result) {
