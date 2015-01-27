@@ -41,20 +41,16 @@ function storyMoves(project, command) {
           newIndex += 1;
         }
 
-        patch.push({
-          op: 'move',
-          path: paths.story(newIndex),
-          from: paths.story(index)
-        });
+        patch.push(
+          {op: 'move', path: paths.story(newIndex), from: paths.story(index)}
+        );
       }
       else if (result.before_id) {
         var beforeIndex = project.indexOfStoryById(result.before_id);
 
-        patch.push({
-          op: 'move',
-          path: path.story(beforeIndex),
-          from: paths.story(index)
-        });
+        patch.push(
+          {op: 'move', path: path.story(beforeIndex), from: paths.story(index)}
+        );
       }
     });
 
@@ -105,8 +101,7 @@ function storyAttrs(project, command) {
       var index = project.indexOfStoryById(result.id);
       var original = project.storyById(result.id);
 
-      if (!original) {
-        if (result.after_id) {
+      if (!original && result.after_id) {
           var newIndex = project.indexOfStoryById(result.after_id) + 1;
 
           patch.push({
@@ -114,32 +109,31 @@ function storyAttrs(project, command) {
             path: paths.story(newIndex),
             value: _.defaults(_.pick(result, STORY_ATTRS), {comments: [], tasks: []})
           });
-        }
         return;
       }
 
-      STORY_ATTRS.forEach(function(attr) {
-        if (_.has(result, attr)) {
-          if (!original || !_.has(original, attr)) {
-            patch.push(
-              {op: 'add', path: paths.storyAttr(index, attr), value: result[attr]}
-            );
-          }
-          else if (_.isNull(result[attr])) {
-            patch.push(
-              {op: 'remove', path: paths.storyAttr(index, attr)}
-            );
-          }
-          else if (result[attr] !== original[attr]) {
-            patch.push(
-              {op: 'replace', path: paths.storyAttr(index, attr), value: result[attr]}
-            );
-          }
-        }
-      });
+      STORY_ATTRS
+        .filter(_.partial(_.has, result))
+        .forEach(function(attr) {
+          var path = paths.storyAttr(index, attr);
+          patch = patch.concat(setAttr(project, path, result[attr]))
+        });
     });
 
   return patch;
+}
+
+function setAttr(project, path, value) {
+  if (!project.has(path)) {
+    return [{op: 'add', path: path, value: value}];
+  }
+  else if (_.isNull(value)) {
+    return [{op: 'remove', path: path}];
+  }
+  else if (value !== project.get(path)) {
+    return [{op: 'replace', path: path, value: value}];
+  }
+  return [];
 }
 
 function labelAttrs(project, command) {
