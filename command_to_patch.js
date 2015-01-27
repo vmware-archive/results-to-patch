@@ -211,6 +211,13 @@ function epicAttrs(project, command) {
           .forEach(function(attr) {
             patch = patch.concat(setAttr(project, path + '/' + attr, result[attr]))
           });
+      } else {
+        var beforeIndex = project.indexOfEpicById(result.before_id);
+        patch.push({
+          op: 'add',
+          path: paths.epic(beforeIndex),
+          value: _.defaults(_.pick(result, EPIC_ATTRS), {comments: []})
+        });
       }
     });
 
