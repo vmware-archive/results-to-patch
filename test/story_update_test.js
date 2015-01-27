@@ -8,7 +8,6 @@ var commandToPatch   = require('../command_to_patch.js');
 chai.Assertion.addMethod('patch', patchAssertion);
 
 var snapshots = fs.readdirSync('./test/fixtures');
-// var snapshots = ['CommentCreate_a0f388'];
 // var snapshots = ['TaskUpdate_2ed4df'];
 
 snapshots.forEach(function(name) {
