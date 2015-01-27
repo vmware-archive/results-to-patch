@@ -123,19 +123,6 @@ function storyAttrs(project, command) {
   return patch;
 }
 
-function setAttr(project, path, value) {
-  if (!project.has(path)) {
-    return [{op: 'add', path: path, value: value}];
-  }
-  else if (_.isNull(value)) {
-    return [{op: 'remove', path: path}];
-  }
-  else if (value !== project.get(path)) {
-    return [{op: 'replace', path: path, value: value}];
-  }
-  return [];
-}
-
 function labelAttrs(project, command) {
   var patch = [];
 
@@ -196,6 +183,17 @@ function taskDeletes(project, command) {
   return patch;
 }
 
+var EPIC_ATTRS = [
+  'id',
+  'created_at',
+  'updated_at',
+  'name',
+  'label_id',
+  'follower_ids',
+  'past_done_stories_count',
+  'past_done_stories_no_point_count',
+  'past_done_story_estimates'
+];
 
 function epicAttrs(project, command) {
   var patch = [];
@@ -208,40 +206,30 @@ function epicAttrs(project, command) {
       var original = project.get(path);
 
       if (original) {
-        [
-          // 'id',
-          'created_at',
-          'updated_at',
-          'name',
-          'label_id',
-          'follower_ids',
-          'past_done_stories_count',
-          'past_done_stories_no_point_count',
-          'past_done_story_estimates'
-        ].forEach(function(attr) {
-
-          if (_.has(result, attr)) {
-            if (_.has(original, attr)) {
-              patch.push(
-                {op: 'replace', path: path + '/' + attr, value: result[attr]}
-              );
-            }
-          }
-
-          // if (!original || !_.has(original, attr)) {
-          // }
-          // patch.push(
-          //   {op: 'replace', path: paths.storyTask(storyIndex, newIndex), value: _.pick(result, TASK_ATTRS)}
-          // );
-        })
+        EPIC_ATTRS
+          .filter(_.partial(_.has, result))
+          .forEach(function(attr) {
+            patch = patch.concat(setAttr(project, path + '/' + attr, result[attr]))
+          });
       }
-
-
-
     });
 
   return patch;
 }
+
+function setAttr(project, path, value) {
+  if (!project.has(path)) {
+    return [{op: 'add', path: path, value: value}];
+  }
+  else if (_.isNull(value)) {
+    return [{op: 'remove', path: path}];
+  }
+  else if (value !== project.get(path)) {
+    return [{op: 'replace', path: path, value: value}];
+  }
+  return [];
+}
+
 
 function commentAttrs(project, command) {
   var patch = [];
