@@ -190,6 +190,7 @@ var EPIC_ATTRS = [
   'created_at',
   'updated_at',
   'name',
+  'description',
   'label_id',
   'follower_ids',
   'past_done_stories_count',
