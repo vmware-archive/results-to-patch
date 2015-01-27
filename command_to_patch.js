@@ -186,7 +186,7 @@ function taskDeletes(project, command) {
     .filter(typeTask)
     .filter(isDeleted)
     .forEach(function(result) {
-      var path = paths.storyTask.apply(paths, project.indexOfStoryTaskById(result.id));
+      var path = project.pathOfStoryTaskById(result.id);
 
       patch.push(
         {op: 'remove', path: path}
@@ -204,12 +204,12 @@ function epicAttrs(project, command) {
     .filter(typeEpic)
     .filter(notDeleted)
     .forEach(function(result) {
-      var path = paths.epic(project.indexOfEpicById(result.id));
+      var path = project.pathOfEpicById(result.id);
       var original = project.get(path);
 
       if (original) {
         [
-          'id',
+          // 'id',
           'created_at',
           'updated_at',
           'name',
@@ -343,7 +343,7 @@ function commentDeletes(project, command) {
     .filter(typeComment)
     .filter(isDeleted)
     .forEach(function(result) {
-      var path = paths.storyComment.apply(paths, project.indexOfStoryCommentById(result.id));
+      var path = project.pathOfCommentById(result.id);
 
       patch.push(
         {op: 'remove', path: path}
