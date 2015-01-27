@@ -13,6 +13,7 @@ module.exports = patcher([
   taskAttrs,
   commentAttrs,
   storyMoves,
+  epicMoves,
   projectVersion
 ]);
 
@@ -235,6 +236,40 @@ function epicDeletes(project, command) {
       patch.push(
         {op: 'remove', path: project.pathOfEpicById(result.id)}
       );
+    });
+
+  return patch;
+}
+
+function epicMoves(project, command) {
+  var patch = [];
+
+  command.results
+    .filter(typeEpic)
+    .forEach(function(result) {
+      var index = project.indexOfEpicById(result.id);
+
+      if (index === -1) {
+        return;
+      }
+
+      if (result.after_id) {
+        var newIndex = project.indexOfEpicById(result.after_id);
+        if (newIndex < index) {
+          newIndex += 1;
+        }
+
+        patch.push(
+          {op: 'move', path: paths.epic(newIndex), from: paths.epic(index)}
+        );
+      }
+      else if (result.before_id) {
+        var beforeIndex = project.indexOfEpicById(result.before_id);
+
+        patch.push(
+          {op: 'move', path: path.epic(beforeIndex), from: paths.epic(index)}
+        );
+      }
     });
 
   return patch;

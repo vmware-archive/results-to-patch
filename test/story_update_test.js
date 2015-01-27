@@ -8,7 +8,7 @@ var commandToPatch   = require('../command_to_patch.js');
 chai.Assertion.addMethod('patch', patchAssertion);
 
 var snapshots = fs.readdirSync('./test/fixtures');
-// var snapshots = ['EpicDelete_0ff7af'];
+// var snapshots = ['EpicMove_72f22e'];
 
 snapshots.forEach(function(name) {
   it('converts ' + name + ' to JSON patch', function() {
