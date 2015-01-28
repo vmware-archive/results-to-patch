@@ -6,7 +6,7 @@ module.exports = patcher([
   iterationDeletes,
   commentDeletes,
   taskDeletes,
-  storyDeletes,
+  storyDeleteAndMoveFromProject,
   epicDeletes,
   labelAttrs,
   iterationAttrs,
@@ -61,10 +61,10 @@ function storyMoves(project, command) {
   return patch;
 }
 
-function storyDeletes(project, command) {
+function storyDeleteAndMoveFromProject(project, command) {
   return _.chain(command.results)
     .filter(typeStory)
-    .filter(isDeleted)
+    .filter(isDeletedOrMoved)
     .sortBy(function(r) { return -1 * project.indexOfStoryById(r.id); })
     .reduce(function(patch, result) {
       patch.push({op: 'remove', path: project.pathOfStoryById(result.id)});
@@ -486,6 +486,10 @@ function typeGoogleAttachment(result) {
 
 function isDeleted(result) {
   return result.deleted === true;
+}
+
+function isDeletedOrMoved(result) {
+  return result.deleted === true || result.moved === true;
 }
 
 function notDeleted(result) {
