@@ -62,18 +62,15 @@ function storyMoves(project, command) {
 }
 
 function storyDeletes(project, command) {
-  var patch = [];
-
-  command.results
+  return _.chain(command.results)
     .filter(typeStory)
     .filter(isDeleted)
-    .forEach(function(result) {
-      patch.push(
-        {op: 'remove', path: paths.story(project.indexOfStoryById(result.id))}
-      );
-    });
-
-  return patch;
+    .sortBy(function(r) { return -1 * project.indexOfStoryById(r.id); })
+    .reduce(function(patch, result) {
+      patch.push({op: 'remove', path: project.pathOfStoryById(result.id)});
+      return patch;
+    }, [])
+    .value();
 }
 
 var STORY_ATTRS = [
