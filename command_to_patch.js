@@ -139,11 +139,30 @@ function iterationAttrs(project, command) {
     .filter(typeIteration)
     .filter(notDeleted)
     .forEach(function(result) {
-      var newIndex = _.sortedIndex(project.overrideIterationNumbers(), result.number);
+      var path = project.pathOfIterationOverrideByNumber(result.number);
 
-      patch.push(
-        {op: 'add', path: paths.iterationOverride(newIndex), value: _.pick(result, ITERATION_ATTRS)}
-      );
+      if (project.has(path)) {
+        ITERATION_ATTRS
+          .filter(_.partial(_.has, result))
+          .forEach(function(attr) {
+            var path = path + '/' + attr;
+            patch = patch.concat(setAttr(project, path, result[attr]))
+          });
+
+      } else {
+        var newIndex = _.sortedIndex(project.overrideIterationNumbers(), result.number);
+
+        var defaults = {
+          team_strength: 1.0
+        }
+
+        patch.push({
+          op: 'add',
+          path: paths.iterationOverride(newIndex),
+          value: _.defaults(_.pick(result, ITERATION_ATTRS), defaults)
+        });
+      }
+
     });
 
   return patch;
