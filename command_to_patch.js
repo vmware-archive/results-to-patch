@@ -3,6 +3,7 @@ var paths = require('./lib/paths');
 var Project = require('./lib/project');
 
 module.exports = patcher([
+  iterationDeletes,
   commentDeletes,
   taskDeletes,
   storyDeletes,
@@ -132,12 +133,27 @@ var ITERATION_ATTRS = [
   'team_strength'
 ];
 
+function iterationDeletes(project, command) {
+  var patch = [];
+
+  command.results
+    .filter(typeIteration)
+    .filter(lengthDefault)
+    .forEach(function(result) {
+      var path = project.pathOfIterationOverrideByNumber(result.number);
+
+      patch.push({op: 'remove', path: path});
+    });
+
+  return patch;
+}
+
 function iterationAttrs(project, command) {
   var patch = [];
 
   command.results
     .filter(typeIteration)
-    .filter(notDeleted)
+    .filter(lengthNotDefault)
     .forEach(function(result) {
       var path = project.pathOfIterationOverrideByNumber(result.number);
 
@@ -477,6 +493,14 @@ function isDeleted(result) {
 
 function notDeleted(result) {
   return !result.deleted;
+}
+
+function lengthDefault(result) {
+  return result.length === 'default';
+}
+
+function lengthNotDefault(result) {
+  return result.length !== 'default';
 }
 
 function patcher(patchers) {

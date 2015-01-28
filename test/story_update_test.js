@@ -8,7 +8,7 @@ var commandToPatch   = require('../command_to_patch.js');
 chai.Assertion.addMethod('patch', patchAssertion);
 
 var snapshots = fs.readdirSync('./test/fixtures');
-// var snapshots = ['IterationUpdate_528a71'];
+// var snapshots = ['IterationUpdate_819301'];
 
 snapshots.forEach(function(name) {
   it('converts ' + name + ' to JSON patch', function() {
