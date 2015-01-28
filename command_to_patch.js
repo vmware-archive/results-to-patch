@@ -8,6 +8,7 @@ module.exports = patcher([
   storyDeletes,
   epicDeletes,
   labelAttrs,
+  iterationAttrs,
   storyAttrs,
   epicAttrs,
   taskAttrs,
@@ -120,6 +121,29 @@ function storyAttrs(project, command) {
           var path = paths.storyAttr(index, attr);
           patch = patch.concat(setAttr(project, path, result[attr]))
         });
+    });
+
+  return patch;
+}
+
+var ITERATION_ATTRS = [
+  'number',
+  'length',
+  'team_strength'
+];
+
+function iterationAttrs(project, command) {
+  var patch = [];
+
+  command.results
+    .filter(typeIteration)
+    .filter(notDeleted)
+    .forEach(function(result) {
+      var newIndex = _.sortedIndex(project.overrideIterationNumbers(), result.number);
+
+      patch.push(
+        {op: 'add', path: paths.iterationOverride(newIndex), value: _.pick(result, ITERATION_ATTRS)}
+      );
     });
 
   return patch;
@@ -402,6 +426,10 @@ function commentDeletes(project, command) {
 
 function typeStory(result) {
   return result.type === 'story';
+}
+
+function typeIteration(result) {
+  return result.type === 'iteration';
 }
 
 function typeEpic(result) {
