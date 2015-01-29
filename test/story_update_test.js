@@ -1,3 +1,4 @@
+var _                = require('lodash');
 var chai             = require('chai');
 var expect           = chai.expect;
 var patchAssertion   = require('./patch_assertion');
@@ -8,6 +9,7 @@ var commandToPatch   = require('../command_to_patch.js');
 chai.Assertion.addMethod('patch', patchAssertion);
 
 var snapshots = fs.readdirSync('./test/fixtures').filter(function(f) { return f !== '.DS_Store' });
+// var snapshots = ['MultiStoryMove_8c1ccd'];
 
 snapshots.forEach(function(name) {
   it('converts ' + name + ' to JSON patch', function() {
@@ -20,5 +22,6 @@ snapshots.forEach(function(name) {
     // console.log(patch)
 
     expect(patch).to.patch(before, after);
+    // expect(_.pluck(helper.patch(before, patch).stories, 'id')).to.deep.equal(_.pluck(after.stories, 'id'))
   });
 });

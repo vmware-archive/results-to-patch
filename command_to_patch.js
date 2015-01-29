@@ -27,36 +27,65 @@ function projectVersion(project, command) {
   }];
 }
 
+// [ { op: 'replace',
+//     path: '/stories/31/updated_at',
+//     value: 1421746095000 },
+//   { op: 'replace',
+//     path: '/stories/21/updated_at',
+//     value: 1421746095000 },
+//   { op: 'replace',
+//     path: '/stories/29/updated_at',
+//     value: 1421746095000 },
+//   { op: 'move', path: '/stories/30', from: '/stories/31' },
+//   { op: 'move', path: '/stories/22', from: '/stories/29' },
+//   { op: 'move', path: '/stories/29', from: '/stories/21' },
+//   { op: 'replace', path: '/version', value: 247 } ]
+
+function firstStory(beforeIds) {
+  var keys = _.chain(beforeIds).keys().map(function(k) { return Number(k) }).value();
+  var values = _.values(beforeIds);
+  return _.first(_.difference(keys, values));
+}
+
+function orderList(beforeIds) {
+  var ids = [];
+  var id = firstStory(beforeIds);
+
+  ids.push(Number(id));
+  while (beforeIds[id] !== -1) {
+    ids.push(beforeIds[id]);
+    id = beforeIds[id];
+  }
+
+  return ids;
+}
+
 function storyMoves(project, command) {
   var patch = [];
+  var ids = project.storyIds();
 
-  command.results
+  _.chain(command.results)
     .filter(typeStory)
-    .forEach(function(result) {
-      var index = project.indexOfStoryById(result.id);
+    .filter(function(r) { return _.has(r, 'before_id') || _.has(r, 'after_id'); })
+    .filter(function(r) { return project.indexOfStoryById(r.id) !== -1; })
+    .sortBy(function(r) { return -1 * project.indexOfStoryById(r.id); })
+    .each(function(result) {
+      var id, from, to;
 
-      if (index === -1) {
-        return;
+      if (result.before_id) {
+        from = ids.indexOf(result.id);
+        id = ids.splice(from, 1)[0];
+        to = ids.indexOf(result.before_id);
+        ids.splice(to, 0, id);
+        patch.push({op: 'move', path: paths.story(to), from: paths.story(from)});
+      } else if (result.after_id) {
+        from = ids.indexOf(result.id);
+        id = ids.splice(from, 1)[0];
+        to = ids.indexOf(result.after_id) + 1;
+        ids.splice(to, 0, id);
+        patch.push({op: 'move', path: paths.story(to), from: paths.story(from)});
       }
-
-      if (result.after_id) {
-        var newIndex = project.indexOfStoryById(result.after_id);
-        if (newIndex < index) {
-          newIndex += 1;
-        }
-
-        patch.push(
-          {op: 'move', path: paths.story(newIndex), from: paths.story(index)}
-        );
-      }
-      else if (result.before_id) {
-        var beforeIndex = project.indexOfStoryById(result.before_id);
-
-        patch.push(
-          {op: 'move', path: path.story(beforeIndex), from: paths.story(index)}
-        );
-      }
-    });
+    }).value();
 
   return patch;
 }
