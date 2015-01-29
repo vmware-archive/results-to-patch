@@ -27,20 +27,6 @@ function projectVersion(project, command) {
   }];
 }
 
-// [ { op: 'replace',
-//     path: '/stories/31/updated_at',
-//     value: 1421746095000 },
-//   { op: 'replace',
-//     path: '/stories/21/updated_at',
-//     value: 1421746095000 },
-//   { op: 'replace',
-//     path: '/stories/29/updated_at',
-//     value: 1421746095000 },
-//   { op: 'move', path: '/stories/30', from: '/stories/31' },
-//   { op: 'move', path: '/stories/22', from: '/stories/29' },
-//   { op: 'move', path: '/stories/29', from: '/stories/21' },
-//   { op: 'replace', path: '/version', value: 247 } ]
-
 function firstStory(beforeIds) {
   var keys = _.chain(beforeIds).keys().map(function(k) { return Number(k) }).value();
   var values = _.values(beforeIds);
