@@ -50,11 +50,36 @@ function storyMoves(project, command) {
   var patch = [];
   var ids = project.storyIds();
 
-  _.chain(command.results)
+  var storyResults = _.chain(command.results)
     .filter(typeStory)
-    .filter(function(r) { return _.has(r, 'before_id') || _.has(r, 'after_id'); })
-    .filter(function(r) { return project.indexOfStoryById(r.id) !== -1; })
-    .sortBy(function(r) { return -1 * project.indexOfStoryById(r.id); })
+    .filter(notDeleted)
+    .filter(function(r) {
+      return project.indexOfStoryById(r.id) !== -1;
+    })
+    .reduce(function(memo, result) {
+      var beforeId = null;
+      var afterId = null;
+      var beforeIndex = ids.indexOf(result.id) + 1;
+      var afterIndex = ids.indexOf(result.id) - 1;
+
+      if (beforeIndex >= 0 && beforeIndex < ids.length) {
+        beforeId = ids[beforeIndex]
+      }
+
+      if (afterIndex >= 0 && afterIndex < ids.length) {
+        afterId = ids[afterIndex]
+      }
+
+      memo.push(_.extend({
+        before_id: beforeId,
+        after_id: afterId
+      }, result));
+
+      return memo;
+    }, [])
+    .sortBy(function(r) {
+      return -1 * project.indexOfStoryById(r.id);
+    })
     .each(function(result) {
       var id, from, to;
 
