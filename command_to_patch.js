@@ -3,66 +3,57 @@ var paths = require('./lib/paths');
 var Project = require('./lib/project');
 
 function patchResults(projectJSON, command) {
-  var params = {
-    project: new Project(projectJSON),
-    command: command
-  }
+  var project = new Project(projectJSON);
 
-  _.compose(
-    projectVersion,
-    taskAttr,
-    taskMove,
-    taskCreate,
-    storyAttr,
-    storyMove,
-    storyCreate,
-    storyDelete,
-    taskDelete
-  )(params);
+  taskDelete(project, command);
+  storyDelete(project, command);
+  storyCreate(project, command);
+  storyMove(project, command);
+  storyAttr(project, command);
+  taskCreate(project, command);
+  taskMove(project, command);
+  taskAttr(project, command);
+  projectVersion(project, command);
 
-  return params.project.log;
+  return project.log;
 }
 
 module.exports = patchResults;
 
-function storyDelete(params) {
-  _.chain(params.command.results)
+function storyDelete(project, command) {
+  _.chain(command.results)
     .filter(function(r) {
       return r.type === 'story' && (r.deleted || r.moved);
     })
     .each(function(r) {
-      params.project.deleteStory(r.id);
+      project.deleteStory(r.id);
     })
     .value();
-
-  return params;
 }
 
-function storyCreate(params) {
-  _.chain(params.command.results)
+function storyCreate(project, command) {
+  _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'story' && !(r.deleted || r.moved) && !params.project.hasStory(r.id);
+      return r.type === 'story' && !(r.deleted || r.moved) && !project.hasStory(r.id);
     })
     .each(function(r) {
-      params.project.appendStory(r.id);
+      project.appendStory(r.id);
     })
     .value();
-
-  return params;
 }
 
-function storyMove(params) {
-  _.chain(params.command.results)
+function storyMove(project, command) {
+  _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'story' && !(r.deleted || r.moved) && params.project.hasStory(r.id);
+      return r.type === 'story' && !(r.deleted || r.moved) && project.hasStory(r.id);
     })
     .sortBy(function(r) {
-      return -1 * params.project.indexOfStory(r.id);
+      return -1 * project.indexOfStory(r.id);
     })
     .map(function(r) {
-      var index = params.project.indexOfStory(r.id);
-      var afterId = params.project.storyAtIndex(index - 1);
-      var beforeId = params.project.storyAtIndex(index + 1);
+      var index = project.indexOfStory(r.id);
+      var afterId = project.storyAtIndex(index - 1);
+      var beforeId = project.storyAtIndex(index + 1);
 
       return _.extend({
         after_id: afterId,
@@ -71,20 +62,18 @@ function storyMove(params) {
     })
     .each(function(r) {
       if (r.before_id) {
-        params.project.moveStoryBefore(r.id, r.before_id);
+        project.moveStoryBefore(r.id, r.before_id);
       } else if (r.after_id) {
-        params.project.moveStoryAfter(r.id, r.after_id);
+        project.moveStoryAfter(r.id, r.after_id);
       }
     })
     .value();
-
-  return params;
 }
 
-function storyAttr(params) {
-  _.chain(params.command.results)
+function storyAttr(project, command) {
+  _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'story' && !(r.deleted || r.moved) && params.project.hasStory(r.id);
+      return r.type === 'story' && !(r.deleted || r.moved) && project.hasStory(r.id);
     })
     .each(function(r) {
       _.chain([
@@ -106,49 +95,45 @@ function storyAttr(params) {
         return _.has(r, attr);
       })
       .each(function(attr) {
-        params.project.setStoryAttr(r.id, attr, r[attr]);
+        project.setStoryAttr(r.id, attr, r[attr]);
       })
       .value();
     })
     .value();
-
-  return params;
+;
 }
 
-function taskDelete(params) {
-  _.chain(params.command.results)
+function taskDelete(project, command) {
+  _.chain(command.results)
     .filter(function(r) {
       return r.type === 'task' && r.deleted;
     })
     .each(function(r) {
-      params.project.deleteTask(r.id);
+      project.deleteTask(r.id);
     })
-    .value()
-  return params;
+    .value();
 }
 
-function taskCreate(params) {
-  _.chain(params.command.results)
+function taskCreate(project, command) {
+  _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'task' && !r.deleted && !params.project.hasStoryTask(r.id);
+      return r.type === 'task' && !r.deleted && !project.hasStoryTask(r.id);
     })
     .each(function(r) {
-      params.project.appendTask(r.story_id, r.id);
+      project.appendTask(r.story_id, r.id);
     })
-    .value()
-  return params;
+    .value();
 }
 
-function taskMove(params) {
-  _.chain(params.command.results)
-    .value()
-  return params;
+function taskMove(project, command) {
+  _.chain(command.results)
+    .value();
 }
 
-function taskAttr(params) {
-  _.chain(params.command.results)
+function taskAttr(project, command) {
+  _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'task' && !r.deleted && params.project.hasStoryTask(r.id);
+      return r.type === 'task' && !r.deleted && project.hasStoryTask(r.id);
     })
     .each(function(r) {
       _.chain([
@@ -159,16 +144,15 @@ function taskAttr(params) {
       ]).filter(function(attr) {
         return _.has(r, attr);
       }).each(function(attr) {
-        params.project.setTaskAttr(r.id, attr, r[attr]);
+        project.setTaskAttr(r.id, attr, r[attr]);
       })
       .value();
     })
     .value();
-  return params;
 }
 
-function projectVersion(params) {
-  params.project.updateVersion(params.command.project.version);
+function projectVersion(project, command) {
+  project.updateVersion(command.project.version);
 }
 
 
