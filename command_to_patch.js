@@ -2,25 +2,32 @@ var _ = require('lodash');
 var paths = require('./lib/paths');
 var Project = require('./lib/project');
 
-function patchResults(projectJSON, command) {
+module.exports = function patchResults(projectJSON, command) {
   var project = new Project(projectJSON);
 
-  taskDelete(project, command);
+  // Deletions
+  storyTaskDelete(project, command);
   storyDelete(project, command);
+
+  // Stories
   storyCreate(project, command);
   storyMove(project, command);
   storyAttr(project, command);
-  taskCreate(project, command);
-  taskMove(project, command);
-  taskAttr(project, command);
+
+  // Story Tasks
+  storyTaskCreate(project, command);
+  storyTaskMove(project, command);
+  storyTaskAttr(project, command);
+
+  // Story Comments
   storyCommentCreate(project, command);
   storyCommentAttr(project, command);
+
+  // Project Version
   projectVersion(project, command);
 
   return project.log;
-}
-
-module.exports = patchResults;
+};
 
 function storyDelete(project, command) {
   _.chain(command.results)
@@ -105,7 +112,7 @@ function storyAttr(project, command) {
 ;
 }
 
-function taskDelete(project, command) {
+function storyTaskDelete(project, command) {
   _.chain(command.results)
     .filter(function(r) {
       return r.type === 'task' && r.deleted;
@@ -116,7 +123,7 @@ function taskDelete(project, command) {
     .value();
 }
 
-function taskCreate(project, command) {
+function storyTaskCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
       return r.type === 'task' && !r.deleted && !project.hasStoryTask(r.id);
@@ -127,12 +134,12 @@ function taskCreate(project, command) {
     .value();
 }
 
-function taskMove(project, command) {
+function storyTaskMove(project, command) {
   _.chain(command.results)
     .value();
 }
 
-function taskAttr(project, command) {
+function storyTaskAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
       return r.type === 'task' && !r.deleted && project.hasStoryTask(r.id);
@@ -146,7 +153,7 @@ function taskAttr(project, command) {
       ]).filter(function(attr) {
         return _.has(r, attr);
       }).each(function(attr) {
-        project.setTaskAttr(r.id, attr, r[attr]);
+        project.setStoryTaskAttr(r.id, attr, r[attr]);
       })
       .value();
     })
