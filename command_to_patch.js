@@ -13,8 +13,8 @@ function patchResults(projectJSON, command) {
   taskCreate(project, command);
   taskMove(project, command);
   taskAttr(project, command);
-  commentCreate(project, command);
-  commentAttr(project, command);
+  storyCommentCreate(project, command);
+  storyCommentAttr(project, command);
   projectVersion(project, command);
 
   return project.log;
@@ -153,7 +153,7 @@ function taskAttr(project, command) {
     .value();
 }
 
-function commentCreate(project, command) {
+function storyCommentCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
       return r.type === 'comment' && r.story_id && !r.deleted && !project.hasStoryComment(r.id);
@@ -164,7 +164,25 @@ function commentCreate(project, command) {
     .value();
 };
 
-function commentAttr()
+function storyCommentAttr(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'comment' && r.story_id && !r.deleted && project.hasStoryComment(r.id);
+    })
+    .each(function(r) {
+       _.chain([
+        'text',
+        'person_id',
+        'created_at',
+        'updated_at'
+      ]).filter(function(attr) {
+        return _.has(r, attr);
+      }).each(function(attr) {
+        project.setStoryCommentAttr(r.id, attr, r[attr]);
+      })
+    })
+    .value();
+}
 
 function projectVersion(project, command) {
   project.updateVersion(command.project.version);
