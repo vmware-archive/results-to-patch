@@ -13,6 +13,8 @@ function patchResults(projectJSON, command) {
   taskCreate(project, command);
   taskMove(project, command);
   taskAttr(project, command);
+  commentCreate(project, command);
+  commentAttr(project, command);
   projectVersion(project, command);
 
   return project.log;
@@ -150,6 +152,19 @@ function taskAttr(project, command) {
     })
     .value();
 }
+
+function commentCreate(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'comment' && r.story_id && !r.deleted && !project.hasStoryComment(r.id);
+    })
+    .each(function(r) {
+      project.appendStoryComment(r.story_id, r.id);
+    })
+    .value();
+};
+
+function commentAttr()
 
 function projectVersion(project, command) {
   project.updateVersion(command.project.version);
