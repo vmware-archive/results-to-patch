@@ -23,6 +23,11 @@ module.exports = function patchResults(projectJSON, command) {
   storyCommentCreate(project, command);
   storyCommentAttr(project, command);
 
+  // Labels
+  labelCreate(project, command);
+  labelAttr(project, command);
+  labelMove(project, command);
+
   // Project Version
   projectVersion(project, command);
 
@@ -174,7 +179,7 @@ function storyCommentCreate(project, command) {
 function storyCommentAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'comment' && r.story_id && !r.deleted && project.hasStoryComment(r.id);
+      return r.type === 'comment' && !r.deleted && project.hasStoryComment(r.id);
     })
     .each(function(r) {
        _.chain([
@@ -191,9 +196,56 @@ function storyCommentAttr(project, command) {
     .value();
 }
 
+function labelCreate(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'label' && !r.deleted && r.id && !project.hasLabel(r.id);
+    })
+    .each(function(r) {
+      project.appendLabel(r.id);
+    })
+    .value();
+};
+
+function labelMove(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'label' && !r.deleted && r.id && r.name && project.hasLabel(r.id);
+    })
+    .sortBy(function(r) {
+      return r.name;
+    })
+    .each(function(r) {
+      var newIndex = project.labelNames().sort().indexOf(r.name);
+      project.moveLabel(r.id, newIndex);
+    })
+    .value();
+}
+
+function labelAttr(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'label' && !r.deleted && r.id && project.hasLabel(r.id);
+    })
+    .each(function(r) {
+       _.chain([
+        'name',
+        'created_at',
+        'updated_at'
+      ]).filter(function(attr) {
+        return _.has(r, attr);
+      }).each(function(attr) {
+        project.setLabelAttr(r.id, attr, r[attr]);
+      })
+    })
+    .value();
+}
+
 function projectVersion(project, command) {
   project.updateVersion(command.project.version);
 }
+
+
 
 
 // var ITERATION_ATTRS = [
