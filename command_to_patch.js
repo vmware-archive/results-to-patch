@@ -8,6 +8,7 @@ module.exports = function patchResults(projectJSON, command) {
   // Deletions
   storyTaskDelete(project, command);
   storyDelete(project, command);
+  iterationOverrideDelete(project, command);
 
   // Stories
   storyCreate(project, command);
@@ -27,6 +28,10 @@ module.exports = function patchResults(projectJSON, command) {
   labelCreate(project, command);
   labelAttr(project, command);
   labelMove(project, command);
+
+  // Iteration Override
+  iterationOverrideCreate(project, command);
+  iterationOverrideAttr(project, command);
 
   // Project Version
   projectVersion(project, command);
@@ -237,6 +242,46 @@ function labelAttr(project, command) {
       }).each(function(attr) {
         project.setLabelAttr(r.id, attr, r[attr]);
       })
+    })
+    .value();
+}
+
+function iterationOverrideCreate(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'iteration' && r.number && r.length !== 'default' && !project.hasIterationOverride(r.number);
+    })
+    .each(function(r) {
+      project.insertIterationOverride(r.number);
+    })
+    .value();
+}
+
+function iterationOverrideAttr(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'iteration' && r.number && r.length !== 'default' && project.hasIterationOverride(r.number);
+    })
+    .each(function(r) {
+       _.chain([
+        'length',
+        'team_strength'
+      ]).filter(function(attr) {
+        return _.has(r, attr);
+      }).each(function(attr) {
+        project.setIterationOverrideAttr(r.number, attr, r[attr]);
+      })
+    })
+    .value();
+}
+
+function iterationOverrideDelete(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'iteration' && r.number && r.length === 'default' && project.hasIterationOverride(r.number);
+    })
+    .each(function(r) {
+      project.deleteIterationOverride(r.number);
     })
     .value();
 }
