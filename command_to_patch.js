@@ -64,7 +64,7 @@ function storyDelete(project, command) {
 function storyCreate(project, command) {
   command.results
     .filter(function(r) {
-      return r.type === 'story' && !(r.deleted || r.moved) && !project.hasStory(r.id);
+      return r.type === 'story' && !(r.deleted || r.moved) && r.project_id;
     })
     .forEach(function(r) {
       project.appendStory(r.id);
