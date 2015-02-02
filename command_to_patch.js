@@ -1,4 +1,3 @@
-var _ = require('lodash');
 var paths = require('./lib/paths');
 var Project = require('./lib/project');
 
@@ -53,57 +52,72 @@ module.exports = function patchResults(projectJSON, command) {
 };
 
 function storyDelete(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'story' && (r.deleted || r.moved);
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.deleteStory(r.id);
-    })
-    .value();
+    });
 }
 
 function storyCreate(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'story' && !(r.deleted || r.moved) && !project.hasStory(r.id);
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.appendStory(r.id);
-    })
-    .value();
+    });
+}
+
+function sortBy(sorter) {
+  return function(a, b) {
+    var aVal = sorter(a);
+    var bVal = sorter(b);
+
+    if (aVal > bVal) {
+      return 1;
+    } else if (aVal < bVal) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
 }
 
 function storyMove(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'story' && !(r.deleted || r.moved);
     })
-    .sortBy(function(r) {
+    .sort(sortBy(function(r) {
       return -1 * project.indexOfStory(r.id);
-    })
+    }))
     .map(function(r) {
       var index = project.indexOfStory(r.id);
-      var afterId = project.storyAtIndex(index - 1);
-      var beforeId = project.storyAtIndex(index + 1);
 
-      return _.extend({
-        after_id: afterId,
-        before_id: beforeId
-      }, r);
+      if (!r.hasOwnProperty('after_id')) {
+        r.after_id = project.storyAtIndex(index - 1);
+      }
+
+      if (!r.hasOwnProperty('before_id')) {
+        r.before_id = project.storyAtIndex(index + 1);;
+      }
+
+      return r;
     })
-    .each(function(r) {
+    .forEach(function(r) {
       if (r.before_id) {
         project.moveStoryBefore(r.id, r.before_id);
       } else if (r.after_id) {
         project.moveStoryAfter(r.id, r.after_id);
       }
-    })
-    .value();
+    });
 }
 
 function storyAttr(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'story' && !(r.deleted || r.moved);
     })
@@ -116,8 +130,8 @@ function storyAttr(project, command) {
       }
       return r;
     })
-    .each(function(r) {
-      _.chain([
+    .forEach(function(r) {
+      [
         'created_at',
         'updated_at',
         'accepted_at',
@@ -134,139 +148,131 @@ function storyAttr(project, command) {
         'label_ids',
         'follower_ids',
         'owned_by_id'
-      ])
+      ]
       .filter(function(attr) {
-        return _.has(r, attr);
+        return r.hasOwnProperty(attr);
       })
-      .each(function(attr) {
+      .forEach(function(attr) {
         project.setStoryAttr(r.id, attr, r[attr]);
-      })
-      .value();
-    })
-    .value();
-;
+      });
+    });
 }
 
 function taskDelete(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'task' && r.deleted;
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.deleteTask(r.id);
-    })
-    .value();
+    });
 }
 
 function taskCreate(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'task' && r.story_id && !r.deleted;
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.appendTask(r.story_id, r.id);
-    })
-    .value();
+    });
 }
 
 function taskMove(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'task' && !r.deleted && r.position;
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.moveTask(r.id, r.position - 1);
-    })
-    .value();
+    });
 }
 
 function taskAttr(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'task' && !r.deleted;
     })
-    .each(function(r) {
-      _.chain([
+    .forEach(function(r) {
+      [
         'description',
         'complete',
         'created_at',
         'updated_at'
-      ]).filter(function(attr) {
-        return _.has(r, attr);
-      }).each(function(attr) {
-        project.setStoryTaskAttr(r.id, attr, r[attr]);
+      ]
+      .filter(function(attr) {
+        return r.hasOwnProperty(attr);
       })
-      .value();
-    })
-    .value();
+      .forEach(function(attr) {
+        project.setStoryTaskAttr(r.id, attr, r[attr]);
+      });
+    });
 }
 
 function commentDelete(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'comment' && r.deleted;
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.deleteComment(r.id);
-    })
-    .value();
+    });
 };
 
 function commentCreate(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'comment' && (r.story_id || r.epic_id) && !r.deleted;
     })
-    .each(function(r) {
+    .forEach(function(r) {
       if (r.story_id) {
         project.appendComment(project.pathOfStory(r.story_id), r.id);
       } else if (r.epic_id) {
         project.appendComment(project.pathOfEpic(r.epic_id), r.id);
       }
-    })
-    .value();
+    });
 };
 
 function commentAttr(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'comment' && !r.deleted;
     })
-    .each(function(r) {
-       _.chain([
+    .forEach(function(r) {
+       [
         'text',
         'person_id',
         'created_at',
         'updated_at'
-      ]).filter(function(attr) {
-        return _.has(r, attr);
-      }).each(function(attr) {
-        project.setCommentAttr(r.id, attr, r[attr]);
+      ]
+      .filter(function(attr) {
+        return r.hasOwnProperty(attr);
       })
-      .value();
+      .forEach(function(attr) {
+        project.setCommentAttr(r.id, attr, r[attr]);
+      });
 
-      _.each(r.file_attachment_ids, function(faId, index) {
+      r.file_attachment_ids.forEach(function(faId, index) {
         if (!project.hasCommentFileAttachment(r.id, faId)) {
           project.appendCommentFileAttachment(r.id, faId, index);
         }
       });
 
-      _.each(r.google_attachment_ids, function(gaId, index) {
+      r.google_attachment_ids.forEach(function(gaId, index) {
         if (!project.hasGoogleAttachment(r.id, gaId)) {
           project.appendGoogleAttachment(r.id, gaId, index);
         }
       });
-    })
-    .value();
+    });
 }
 
 function fileAttachmentAttr(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'file_attachment' && !r.deleted;
     })
-    .each(function(r) {
-       _.chain([
+    .forEach(function(r) {
+       [
         'filename',
         'uploader_id',
         'created_at',
@@ -279,130 +285,125 @@ function fileAttachmentAttr(project, command) {
         'width',
         'thumbnail_url',
         'big_url'
-      ]).filter(function(attr) {
-        return _.has(r, attr);
-      }).each(function(attr) {
+      ]
+      .filter(function(attr) {
+        return r.hasOwnProperty(attr);
+      }).forEach(function(attr) {
         project.setFileAttachmentAttr(r.id, attr, r[attr]);
-      })
-    })
-    .value();
+      });
+    });
 };
 
 
 function googleAttachmentAttr(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'google_attachment' && !r.deleted;
     })
-    .each(function(r) {
-       _.chain([
+    .forEach(function(r) {
+       [
         'google_kind',
         'person_id',
         'resource_id',
         'alternate_link',
         'google_id',
         'title'
-      ]).filter(function(attr) {
-        return _.has(r, attr);
-      }).each(function(attr) {
+      ]
+      .filter(function(attr) {
+        return r.hasOwnProperty(attr);
+      }).forEach(function(attr) {
         project.setGoogleAttachmentAttr(r.id, attr, r[attr]);
-      })
-    })
-    .value();
+      });
+    });
 };
 
 function labelCreate(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'label' && !r.deleted && r.project_id;
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.appendLabel(r.id);
-    })
-    .value();
+    });
 };
 
 function labelMove(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'label' && !r.deleted && r.name;
     })
-    .sortBy(function(r) {
+    .sort(sortBy(function(r) {
       return r.name;
-    })
-    .each(function(r) {
+    }))
+    .forEach(function(r) {
       var newIndex = project.labelNames().sort().indexOf(r.name);
       project.moveLabel(r.id, newIndex);
-    })
-    .value();
+    });
 }
 
 function labelAttr(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'label' && !r.deleted;
     })
-    .each(function(r) {
-       _.chain([
+    .forEach(function(r) {
+       [
         'name',
         'created_at',
         'updated_at'
-      ]).filter(function(attr) {
-        return _.has(r, attr);
-      }).each(function(attr) {
+      ]
+      .filter(function(attr) {
+        return r.hasOwnProperty(attr);
+      }).forEach(function(attr) {
         project.setLabelAttr(r.id, attr, r[attr]);
-      })
-    })
-    .value();
+      });
+    });
 }
 
 function epicDelete(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'epic' && r.deleted;
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.deleteEpic(r.id);
     })
-    .value();
 }
 
 function epicCreate(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'epic' && !r.deleted && r.project_id;
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.appendEpic(r.id);
-    })
-    .value();
+    });
 }
 
 function epicMove(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'epic' && !r.deleted && r.id && (r.before_id || r.after_id);
     })
-    .sortBy(function(r) {
+    .sort(sortBy(function(r) {
       return -1 * project.indexOfEpic(r.id);
-    })
-    .each(function(r) {
+    }))
+    .forEach(function(r) {
       if (r.before_id) {
         project.moveEpicBefore(r.id, r.before_id);
       } else if (r.after_id) {
         project.moveEpicAfter(r.id, r.after_id);
       }
-    })
-    .value();
+    });
 }
 
 function epicAttr(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'epic' && !r.deleted;
     })
-    .each(function(r) {
-       _.chain([
+    .forEach(function(r) {
+       [
         'created_at',
         'updated_at',
         'name',
@@ -412,53 +413,51 @@ function epicAttr(project, command) {
         'past_done_stories_count',
         'past_done_stories_no_point_count',
         'past_done_story_estimates'
-      ]).filter(function(attr) {
-        return _.has(r, attr);
-      }).each(function(attr) {
+      ]
+      .filter(function(attr) {
+        return r.hasOwnProperty(attr);
+      }).forEach(function(attr) {
         project.setEpicAttr(r.id, attr, r[attr]);
-      })
-    })
-    .value();
+      });
+    });
 }
 
 function iterationOverrideCreate(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'iteration' && r.length !== 'default' && !project.hasIterationOverride(r.number);
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.insertIterationOverride(r.number);
-    })
-    .value();
+    });
 }
 
 function iterationOverrideAttr(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'iteration' && r.length !== 'default';
     })
-    .each(function(r) {
-       _.chain([
+    .forEach(function(r) {
+       [
         'length',
         'team_strength'
-      ]).filter(function(attr) {
-        return _.has(r, attr);
-      }).each(function(attr) {
+      ]
+      .filter(function(attr) {
+        return r.hasOwnProperty(attr);
+      }).forEach(function(attr) {
         project.setIterationOverrideAttr(r.number, attr, r[attr]);
-      })
+      });
     })
-    .value();
 }
 
 function iterationOverrideDelete(project, command) {
-  _.chain(command.results)
+  command.results
     .filter(function(r) {
       return r.type === 'iteration' && r.length === 'default';
     })
-    .each(function(r) {
+    .forEach(function(r) {
       project.deleteIterationOverride(r.number);
-    })
-    .value();
+    });
 }
 
 function projectVersion(project, command) {
