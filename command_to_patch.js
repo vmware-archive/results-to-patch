@@ -1,4 +1,3 @@
-var paths = require('./lib/paths');
 var Project = require('./lib/project');
 
 module.exports = function patchResults(projectJSON, command) {
