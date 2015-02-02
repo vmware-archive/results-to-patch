@@ -71,21 +71,6 @@ function storyCreate(project, command) {
     });
 }
 
-function sortBy(sorter) {
-  return function(a, b) {
-    var aVal = sorter(a);
-    var bVal = sorter(b);
-
-    if (aVal > bVal) {
-      return 1;
-    } else if (aVal < bVal) {
-      return -1;
-    } else {
-      return 0;
-    }
-  }
-}
-
 function storyMove(project, command) {
   command.results
     .filter(function(r) {
@@ -288,7 +273,8 @@ function fileAttachmentAttr(project, command) {
       ]
       .filter(function(attr) {
         return r.hasOwnProperty(attr);
-      }).forEach(function(attr) {
+      })
+      .forEach(function(attr) {
         project.setFileAttachmentAttr(r.id, attr, r[attr]);
       });
     });
@@ -311,7 +297,8 @@ function googleAttachmentAttr(project, command) {
       ]
       .filter(function(attr) {
         return r.hasOwnProperty(attr);
-      }).forEach(function(attr) {
+      })
+      .forEach(function(attr) {
         project.setGoogleAttachmentAttr(r.id, attr, r[attr]);
       });
     });
@@ -354,7 +341,8 @@ function labelAttr(project, command) {
       ]
       .filter(function(attr) {
         return r.hasOwnProperty(attr);
-      }).forEach(function(attr) {
+      })
+      .forEach(function(attr) {
         project.setLabelAttr(r.id, attr, r[attr]);
       });
     });
@@ -444,7 +432,8 @@ function iterationOverrideAttr(project, command) {
       ]
       .filter(function(attr) {
         return r.hasOwnProperty(attr);
-      }).forEach(function(attr) {
+      })
+      .forEach(function(attr) {
         project.setIterationOverrideAttr(r.number, attr, r[attr]);
       });
     })
@@ -462,4 +451,19 @@ function iterationOverrideDelete(project, command) {
 
 function projectVersion(project, command) {
   project.updateVersion(command.project.version);
+}
+
+function sortBy(sorter) {
+  return function(a, b) {
+    var aVal = sorter(a);
+    var bVal = sorter(b);
+
+    if (aVal > bVal) {
+      return 1;
+    } else if (aVal < bVal) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
 }
