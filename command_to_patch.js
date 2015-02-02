@@ -164,6 +164,12 @@ function storyTaskCreate(project, command) {
 
 function storyTaskMove(project, command) {
   _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'task' && !r.deleted && r.position && project.hasStoryTask(r.id);
+    })
+    .each(function(r) {
+      project.moveTask(r.id, r.position - 1);
+    })
     .value();
 }
 
