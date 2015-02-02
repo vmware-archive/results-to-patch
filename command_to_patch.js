@@ -9,7 +9,7 @@ module.exports = function patchResults(projectJSON, command) {
   iterationOverrideDelete(project, command);
   epicDelete(project, command);
   commentDelete(project, command);
-  storyTaskDelete(project, command);
+  taskDelete(project, command);
   storyDelete(project, command);
 
   // Stories
@@ -17,18 +17,19 @@ module.exports = function patchResults(projectJSON, command) {
   storyMove(project, command);
   storyAttr(project, command);
 
-  // Story Tasks
-  storyTaskCreate(project, command);
-  storyTaskMove(project, command);
-  storyTaskAttr(project, command);
+  // Epics
+  epicCreate(project, command);
+  epicMove(project, command);
+  epicAttr(project, command);
 
-  // Story Comments
-  storyCommentCreate(project, command);
-  storyCommentAttr(project, command);
+  // Tasks
+  taskCreate(project, command);
+  taskMove(project, command);
+  taskAttr(project, command);
 
-  // Epic Comments
-  epicCommentCreate(project, command);
-  epicCommentAttr(project, command);
+  // Comments
+  commentCreate(project, command);
+  commentAttr(project, command);
 
   // File Attachments
   fileAttachmentAttr(project, command);
@@ -40,11 +41,6 @@ module.exports = function patchResults(projectJSON, command) {
   labelCreate(project, command);
   labelAttr(project, command);
   labelMove(project, command);
-
-  // Epics
-  epicCreate(project, command);
-  epicMove(project, command);
-  epicAttr(project, command);
 
   // Iteration Override
   iterationOverrideCreate(project, command);
@@ -151,7 +147,7 @@ function storyAttr(project, command) {
 ;
 }
 
-function storyTaskDelete(project, command) {
+function taskDelete(project, command) {
   _.chain(command.results)
     .filter(function(r) {
       return r.type === 'task' && r.deleted;
@@ -162,7 +158,7 @@ function storyTaskDelete(project, command) {
     .value();
 }
 
-function storyTaskCreate(project, command) {
+function taskCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
       return r.type === 'task' && !r.deleted && !project.hasStoryTask(r.id);
@@ -173,7 +169,7 @@ function storyTaskCreate(project, command) {
     .value();
 }
 
-function storyTaskMove(project, command) {
+function taskMove(project, command) {
   _.chain(command.results)
     .filter(function(r) {
       return r.type === 'task' && !r.deleted && r.position;
@@ -184,7 +180,7 @@ function storyTaskMove(project, command) {
     .value();
 }
 
-function storyTaskAttr(project, command) {
+function taskAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
       return r.type === 'task' && !r.deleted;
@@ -216,21 +212,25 @@ function commentDelete(project, command) {
     .value();
 };
 
-function storyCommentCreate(project, command) {
+function commentCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'comment' && r.story_id && !r.deleted && !project.hasStoryComment(r.id);
+      return r.type === 'comment' && (r.story_id || r.epic_id) && !r.deleted && !project.hasComment(r.id);
     })
     .each(function(r) {
-      project.appendStoryComment(r.story_id, r.id);
+      if (r.story_id) {
+        project.appendComment(project.pathOfStory(r.story_id), r.id);
+      } else if (r.epic_id) {
+        project.appendComment(project.pathOfEpic(r.epic_id), r.id);
+      }
     })
     .value();
 };
 
-function storyCommentAttr(project, command) {
+function commentAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'comment' && !r.deleted && project.hasStoryComment(r.id);
+      return r.type === 'comment' && !r.deleted;
     })
     .each(function(r) {
        _.chain([
@@ -241,13 +241,13 @@ function storyCommentAttr(project, command) {
       ]).filter(function(attr) {
         return _.has(r, attr);
       }).each(function(attr) {
-        project.setStoryCommentAttr(r.id, attr, r[attr]);
+        project.setCommentAttr(r.id, attr, r[attr]);
       })
       .value();
 
       _.each(r.file_attachment_ids, function(faId, index) {
-        if (!project.hasStoryCommentFileAttachment(r.id, faId)) {
-          project.appendStoryCommentFileAttachment(r.id, faId, index);
+        if (!project.hasCommentFileAttachment(r.id, faId)) {
+          project.appendCommentFileAttachment(r.id, faId, index);
         }
       });
 
@@ -255,37 +255,6 @@ function storyCommentAttr(project, command) {
         if (!project.hasGoogleAttachment(r.id, gaId)) {
           project.appendGoogleAttachment(r.id, gaId, index);
         }
-      });
-    })
-    .value();
-}
-
-function epicCommentCreate(project, command) {
-  _.chain(command.results)
-    .filter(function(r) {
-      return r.type === 'comment' && r.epic_id && !r.deleted && !project.hasEpicComment(r.id);
-    })
-    .each(function(r) {
-      project.appendEpicComment(r.epic_id, r.id);
-    })
-    .value();
-};
-
-function epicCommentAttr(project, command) {
-  _.chain(command.results)
-    .filter(function(r) {
-      return r.type === 'comment' && !r.deleted && project.hasEpicComment(r.id);
-    })
-    .each(function(r) {
-       _.chain([
-        'text',
-        'person_id',
-        'created_at',
-        'updated_at'
-      ]).filter(function(attr) {
-        return _.has(r, attr);
-      }).each(function(attr) {
-        project.setEpicCommentAttr(r.id, attr, r[attr]);
       });
     })
     .value();
