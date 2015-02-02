@@ -49,7 +49,7 @@ module.exports = function patchResults(projectJSON, command) {
   // Project Version
   projectVersion(project, command);
 
-  return project.log;
+  return project.patches();
 };
 
 function storyDelete(project, command) {
@@ -161,7 +161,7 @@ function taskDelete(project, command) {
 function taskCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'task' && !r.deleted && !project.hasStoryTask(r.id);
+      return r.type === 'task' && r.story_id && !r.deleted;
     })
     .each(function(r) {
       project.appendTask(r.story_id, r.id);
@@ -215,7 +215,7 @@ function commentDelete(project, command) {
 function commentCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'comment' && (r.story_id || r.epic_id) && !r.deleted && !project.hasComment(r.id);
+      return r.type === 'comment' && (r.story_id || r.epic_id) && !r.deleted;
     })
     .each(function(r) {
       if (r.story_id) {
@@ -314,7 +314,7 @@ function googleAttachmentAttr(project, command) {
 function labelCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'label' && !r.deleted && r.id && !project.hasLabel(r.id);
+      return r.type === 'label' && !r.deleted && r.project_id;
     })
     .each(function(r) {
       project.appendLabel(r.id);
@@ -370,7 +370,7 @@ function epicDelete(project, command) {
 function epicCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'epic' && !r.deleted && !project.hasEpic(r.id);
+      return r.type === 'epic' && !r.deleted && r.project_id;
     })
     .each(function(r) {
       project.appendEpic(r.id);
