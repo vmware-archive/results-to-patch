@@ -424,7 +424,7 @@ function epicAttr(project, command) {
 function iterationOverrideCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'iteration' && r.number && r.length !== 'default' && !project.hasIterationOverride(r.number);
+      return r.type === 'iteration' && r.length !== 'default' && !project.hasIterationOverride(r.number);
     })
     .each(function(r) {
       project.insertIterationOverride(r.number);
@@ -435,7 +435,7 @@ function iterationOverrideCreate(project, command) {
 function iterationOverrideAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'iteration' && r.number && r.length !== 'default';
+      return r.type === 'iteration' && r.length !== 'default';
     })
     .each(function(r) {
        _.chain([
@@ -453,7 +453,7 @@ function iterationOverrideAttr(project, command) {
 function iterationOverrideDelete(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'iteration' && r.number && r.length === 'default';
+      return r.type === 'iteration' && r.length === 'default';
     })
     .each(function(r) {
       project.deleteIterationOverride(r.number);
