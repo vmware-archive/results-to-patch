@@ -47,7 +47,10 @@ module.exports = function patchResults(projectJSON, command) {
   // Project Version
   projectVersion(project, command);
 
-  return project.patches();
+  return {
+    forward: project.forward,
+    reverse: project.reverse
+  };
 };
 
 function storyDelete(project, command) {
