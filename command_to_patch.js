@@ -6,10 +6,12 @@ module.exports = function patchResults(projectJSON, command) {
   var project = new Project(projectJSON);
 
   // Deletions
+  iterationOverrideDelete(project, command);
+  epicDelete(project, command);
+  epicCommentDelete(project, command);
+  storyCommentDelete(project, command);
   storyTaskDelete(project, command);
   storyDelete(project, command);
-  epicDelete(project, command);
-  iterationOverrideDelete(project, command);
 
   // Stories
   storyCreate(project, command);
@@ -176,6 +178,17 @@ function storyTaskAttr(project, command) {
     .value();
 }
 
+function storyCommentDelete(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'comment' && r.deleted && project.hasStoryComment(r.id);
+    })
+    .each(function(r) {
+      project.deleteStoryComment(r.id);
+    })
+    .value();
+};
+
 function storyCommentCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
@@ -206,6 +219,17 @@ function storyCommentAttr(project, command) {
     })
     .value();
 }
+
+function epicCommentDelete(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'comment' && r.deleted && project.hasEpicComment(r.id);
+    })
+    .each(function(r) {
+      project.deleteEpicComment(r.id);
+    })
+    .value();
+};
 
 function labelCreate(project, command) {
   _.chain(command.results)
