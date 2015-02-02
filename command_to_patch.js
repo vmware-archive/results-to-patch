@@ -27,6 +27,16 @@ module.exports = function patchResults(projectJSON, command) {
   storyCommentCreate(project, command);
   storyCommentAttr(project, command);
 
+  // Epic Comments
+  epicCommentCreate(project, command);
+  epicCommentAttr(project, command);
+
+  // File Attachments
+  fileAttachmentAttr(project, command);
+
+  // Google Attachments
+  googleAttachmentAttr(project, command);
+
   // Labels
   labelCreate(project, command);
   labelAttr(project, command);
@@ -216,9 +226,104 @@ function storyCommentAttr(project, command) {
       }).each(function(attr) {
         project.setStoryCommentAttr(r.id, attr, r[attr]);
       })
+      .value();
+
+      _.each(r.file_attachment_ids, function(faId, index) {
+        if (!project.hasStoryCommentFileAttachment(r.id, faId)) {
+          project.appendStoryCommentFileAttachment(r.id, faId, index);
+        }
+      });
+
+      _.each(r.google_attachment_ids, function(gaId, index) {
+        if (!project.hasGoogleAttachment(r.id, gaId)) {
+          project.appendGoogleAttachment(r.id, gaId, index);
+        }
+      });
     })
     .value();
 }
+
+function epicCommentCreate(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'comment' && r.epic_id && !r.deleted && !project.hasEpicComment(r.id);
+    })
+    .each(function(r) {
+      project.appendEpicComment(r.epic_id, r.id);
+    })
+    .value();
+};
+
+function epicCommentAttr(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'comment' && !r.deleted && project.hasEpicComment(r.id);
+    })
+    .each(function(r) {
+       _.chain([
+        'text',
+        'person_id',
+        'created_at',
+        'updated_at'
+      ]).filter(function(attr) {
+        return _.has(r, attr);
+      }).each(function(attr) {
+        project.setEpicCommentAttr(r.id, attr, r[attr]);
+      });
+    })
+    .value();
+}
+
+function fileAttachmentAttr(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'file_attachment' && !r.deleted && project.hasFileAttachment(r.id);
+    })
+    .each(function(r) {
+       _.chain([
+        'filename',
+        'uploader_id',
+        'created_at',
+        'content_type',
+        'size',
+        'download_url',
+        'uploaded',
+        'thumbnailable',
+        'height',
+        'width',
+        'thumbnail_url',
+        'big_url'
+      ]).filter(function(attr) {
+        return _.has(r, attr);
+      }).each(function(attr) {
+        project.setFileAttachmentAttr(r.id, attr, r[attr]);
+      })
+    })
+    .value();
+};
+
+
+function googleAttachmentAttr(project, command) {
+  _.chain(command.results)
+    .filter(function(r) {
+      return r.type === 'google_attachment' && !r.deleted && project.hasGoogleAttachment(r.id);
+    })
+    .each(function(r) {
+       _.chain([
+        'google_kind',
+        'person_id',
+        'resource_id',
+        'alternate_link',
+        'google_id',
+        'title'
+      ]).filter(function(attr) {
+        return _.has(r, attr);
+      }).each(function(attr) {
+        project.setGoogleAttachmentAttr(r.id, attr, r[attr]);
+      })
+    })
+    .value();
+};
 
 function epicCommentDelete(project, command) {
   _.chain(command.results)
@@ -384,153 +489,3 @@ function iterationOverrideDelete(project, command) {
 function projectVersion(project, command) {
   project.updateVersion(command.project.version);
 }
-
-
-
-
-// var ITERATION_ATTRS = [
-//   'number',
-//   'length',
-//   'team_strength'
-// ];
-
-// function iterationDeletes(project, command) {
-//   var patch = [];
-
-//   command.results
-//     .filter(typeIteration)
-//     .filter(lengthDefault)
-//     .forEach(function(result) {
-//       var path = project.pathOfIterationOverrideByNumber(result.number);
-
-//       patch.push({op: 'remove', path: path});
-//     });
-
-//   return patch;
-// }
-
-
-// function labelAttrs(project, command) {
-//   var patch = [];
-
-//   command.results
-//     .filter(typeLabel)
-//     .filter(notDeleted)
-//     .forEach(function(result) {
-//       var newIndex = _.sortedIndex(project.labelNames(), result.name);
-
-//       patch.push(
-//         {op: 'add', path: paths.label(newIndex), value: _.pick(result, 'id', 'name', 'created_at', 'updated_at')}
-//       );
-//     });
-
-//   return patch;
-// }
-
-
-// var EPIC_ATTRS = [
-//   'id',
-//   'created_at',
-//   'updated_at',
-//   'name',
-//   'description',
-//   'label_id',
-//   'follower_ids',
-//   'past_done_stories_count',
-//   'past_done_stories_no_point_count',
-//   'past_done_story_estimates'
-// ];
-
-
-// function commentAttrs(project, command) {
-//   var patch = [];
-
-//   command.results
-//     .filter(typeComment)
-//     .filter(notDeleted)
-//     .forEach(function(result) {
-
-//       // new story comment
-//       // new epic comment
-//       // new comment existing story
-//       // new comment existing epic
-//       // update comment existing story
-//       // update comment existing epic
-
-//       var commentPath;
-
-//       var storyIndex = project.indexOfStoryById(result.story_id);
-//       if (storyIndex !== -1) {
-//         commentPath = paths.storyComment(storyIndex, 0);
-//       }
-
-//       var epicIndex = project.indexOfEpicById(result.epic_id);
-//       if (epicIndex !== -1) {
-//         commentPath = paths.epicComment(epicIndex, 0);
-//       }
-
-//       var originalComment = project.get(commentPath);
-//       if (!originalComment) {
-//         var addOpValue = _.pick(result,
-//           'id',
-//           'text',
-//           'person_id',
-//           'created_at',
-//           'updated_at'
-//         );
-
-//         if (result.google_attachment_ids && result.google_attachment_ids.length) {
-//           addOpValue.google_attachments = [];
-
-//           result.google_attachment_ids.forEach(function(gaId) {
-//             var gaResult = _.where(command.results, {type: 'google_attachment', id: gaId})[0];
-
-//             addOpValue.google_attachments.push(_.pick(gaResult,
-//               'id',
-//               'google_kind',
-//               'person_id',
-//               'resource_id',
-//               'alternate_link',
-//               'google_id',
-//               'title'
-//             ));
-//           });
-//         }
-
-//         if (result.file_attachment_ids && result.file_attachment_ids.length) {
-//           addOpValue.file_attachments = [];
-
-//           result.file_attachment_ids.forEach(function(fileId) {
-//             var fileResult = _.where(command.results, {type: 'file_attachment', id: fileId})[0];
-
-//             addOpValue.file_attachments.push(_.pick(fileResult,
-//               'id',
-//               'filename',
-//               'uploader_id',
-//               'created_at',
-//               'content_type',
-//               'size',
-//               'download_url',
-//               'uploaded',
-//               'thumbnailable',
-//               'height',
-//               'width',
-//               'thumbnail_url',
-//               'big_url'
-//             ));
-//           });
-//         }
-
-//         patch.push({
-//           op: 'add',
-//           path: commentPath,
-//           value: _.defaults(addOpValue, {
-//             google_attachments: [],
-//             file_attachments: []
-//           })
-//         });
-//       }
-//     });
-
-//   return patch;
-// }

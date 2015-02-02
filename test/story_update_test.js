@@ -9,7 +9,7 @@ var commandToPatch   = require('../command_to_patch.js');
 chai.Assertion.addMethod('patch', patchAssertion);
 
 var snapshots = fs.readdirSync('./test/fixtures').filter(function(f) { return f !== '.DS_Store' });
-// var snapshots = ['CommentCreate_a0f388'];
+// var snapshots = ['CommentCreate_03e0cb'];
 
 snapshots.forEach(function(name) {
   it('converts ' + name + ' to JSON patch', function() {
