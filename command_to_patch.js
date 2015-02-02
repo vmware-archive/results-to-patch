@@ -8,8 +8,7 @@ module.exports = function patchResults(projectJSON, command) {
   // Deletions
   iterationOverrideDelete(project, command);
   epicDelete(project, command);
-  epicCommentDelete(project, command);
-  storyCommentDelete(project, command);
+  commentDelete(project, command);
   storyTaskDelete(project, command);
   storyDelete(project, command);
 
@@ -82,7 +81,7 @@ function storyCreate(project, command) {
 function storyMove(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'story' && !(r.deleted || r.moved) && project.hasStory(r.id);
+      return r.type === 'story' && !(r.deleted || r.moved);
     })
     .sortBy(function(r) {
       return -1 * project.indexOfStory(r.id);
@@ -110,7 +109,7 @@ function storyMove(project, command) {
 function storyAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'story' && !(r.deleted || r.moved) && project.hasStory(r.id);
+      return r.type === 'story' && !(r.deleted || r.moved);
     })
     .map(function(r) {
       if (r.estimate === -1) {
@@ -177,7 +176,7 @@ function storyTaskCreate(project, command) {
 function storyTaskMove(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'task' && !r.deleted && r.position && project.hasStoryTask(r.id);
+      return r.type === 'task' && !r.deleted && r.position;
     })
     .each(function(r) {
       project.moveTask(r.id, r.position - 1);
@@ -188,7 +187,7 @@ function storyTaskMove(project, command) {
 function storyTaskAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'task' && !r.deleted && project.hasStoryTask(r.id);
+      return r.type === 'task' && !r.deleted;
     })
     .each(function(r) {
       _.chain([
@@ -206,13 +205,13 @@ function storyTaskAttr(project, command) {
     .value();
 }
 
-function storyCommentDelete(project, command) {
+function commentDelete(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'comment' && r.deleted && project.hasStoryComment(r.id);
+      return r.type === 'comment' && r.deleted;
     })
     .each(function(r) {
-      project.deleteStoryComment(r.id);
+      project.deleteComment(r.id);
     })
     .value();
 };
@@ -295,7 +294,7 @@ function epicCommentAttr(project, command) {
 function fileAttachmentAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'file_attachment' && !r.deleted && project.hasFileAttachment(r.id);
+      return r.type === 'file_attachment' && !r.deleted;
     })
     .each(function(r) {
        _.chain([
@@ -324,7 +323,7 @@ function fileAttachmentAttr(project, command) {
 function googleAttachmentAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'google_attachment' && !r.deleted && project.hasGoogleAttachment(r.id);
+      return r.type === 'google_attachment' && !r.deleted;
     })
     .each(function(r) {
        _.chain([
@@ -343,17 +342,6 @@ function googleAttachmentAttr(project, command) {
     .value();
 };
 
-function epicCommentDelete(project, command) {
-  _.chain(command.results)
-    .filter(function(r) {
-      return r.type === 'comment' && r.deleted && project.hasEpicComment(r.id);
-    })
-    .each(function(r) {
-      project.deleteEpicComment(r.id);
-    })
-    .value();
-};
-
 function labelCreate(project, command) {
   _.chain(command.results)
     .filter(function(r) {
@@ -368,7 +356,7 @@ function labelCreate(project, command) {
 function labelMove(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'label' && !r.deleted && r.id && r.name && project.hasLabel(r.id);
+      return r.type === 'label' && !r.deleted && r.name;
     })
     .sortBy(function(r) {
       return r.name;
@@ -383,7 +371,7 @@ function labelMove(project, command) {
 function labelAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'label' && !r.deleted && r.id && project.hasLabel(r.id);
+      return r.type === 'label' && !r.deleted;
     })
     .each(function(r) {
        _.chain([
@@ -424,7 +412,7 @@ function epicCreate(project, command) {
 function epicMove(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'epic' && !r.deleted && r.id && (r.before_id || r.after_id) && project.hasEpic(r.id);
+      return r.type === 'epic' && !r.deleted && r.id && (r.before_id || r.after_id);
     })
     .sortBy(function(r) {
       return -1 * project.indexOfEpic(r.id);
@@ -442,7 +430,7 @@ function epicMove(project, command) {
 function epicAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'epic' && !r.deleted && r.id && project.hasEpic(r.id);
+      return r.type === 'epic' && !r.deleted;
     })
     .each(function(r) {
        _.chain([
@@ -478,7 +466,7 @@ function iterationOverrideCreate(project, command) {
 function iterationOverrideAttr(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'iteration' && r.number && r.length !== 'default' && project.hasIterationOverride(r.number);
+      return r.type === 'iteration' && r.number && r.length !== 'default';
     })
     .each(function(r) {
        _.chain([
@@ -496,7 +484,7 @@ function iterationOverrideAttr(project, command) {
 function iterationOverrideDelete(project, command) {
   _.chain(command.results)
     .filter(function(r) {
-      return r.type === 'iteration' && r.number && r.length === 'default' && project.hasIterationOverride(r.number);
+      return r.type === 'iteration' && r.number && r.length === 'default';
     })
     .each(function(r) {
       project.deleteIterationOverride(r.number);
