@@ -112,12 +112,24 @@ function storyAttr(project, command) {
     .filter(function(r) {
       return r.type === 'story' && !(r.deleted || r.moved) && project.hasStory(r.id);
     })
+    .map(function(r) {
+      if (r.estimate === -1) {
+        r.estimate = null;
+      }
+      if (r.external_id === '') {
+        r.external_id = null;
+      }
+      return r;
+    })
     .each(function(r) {
       _.chain([
         'created_at',
         'updated_at',
         'accepted_at',
         'estimate',
+        'external_id',
+        'integration_id',
+        'deadline',
         'story_type',
         'name',
         'description',
