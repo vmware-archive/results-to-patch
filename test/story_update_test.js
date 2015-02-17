@@ -8,10 +8,6 @@ var compress         = require('../lib/compress.js');
 chai.Assertion.addMethod('patch', patchAssertion);
 
 var FIXTURES = './test/fixtures/**/*.json';
-// var FIXTURES = './test/fixtures/LabelUpdate_*/*.json';
-// var FIXTURES = './test/fixtures/LabelUpdate_e5a2f9/*.json';
-// var FIXTURES = '../tracker/tmp/command_snapshots/**/*.json';
-// var FIXTURES = '../tracker/tmp/command_snapshots/LabelUpdate_3476c0/*.json';
 
 helper.snapshots(FIXTURES).forEach(function(snapshot) {
   it('creates a patch for ' + snapshot.name, function() {
