@@ -14,12 +14,14 @@
     "json-patch-gen": "^1.0.2",
     "json-pointer": "^0.2.2",
     "jspath": "^0.2.14",
+    "legacy-encoding": "^3.0.0",
     "lodash": "^2.4.1",
     "rfc6902": "0.0.6",
     "spahql": "^0.7.6"
   },
   "devDependencies": {
     "chai": "^1.10.0",
+    "glob": "^4.3.5",
     "mocha": "^2.1.0",
     "rfc6902-json-diff": "^0.1.2"
   }

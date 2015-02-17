@@ -1,18 +1,30 @@
 var fs        = require('fs');
 var path      = require('path');
+var glob      = require('glob');
 var _         = require('lodash');
 var jsonPatch = require('fast-json-patch');
 
-var helper = {
-  loadSnapshot: function(name) {
-    var snapshotPath = path.resolve(__dirname, 'fixtures/' + name);
+function loadSnapshotFile(groupedSnapshots, filepath) {
+  var dirname = path.dirname(filepath);
+  var basename = path.basename(filepath);
+  groupedSnapshots[dirname] = groupedSnapshots[dirname] || {name: path.basename(dirname)};
+  groupedSnapshots[dirname][basename] = helper.loadJSON(filepath);
+  return groupedSnapshots;
+}
 
-      return {
-        name: name,
-        before: helper.loadJSON(snapshotPath + '/before.json'),
-        after: helper.loadJSON(snapshotPath+ '/after.json'),
-        command: helper.loadJSON(snapshotPath+ '/command.json')
-      }
+function isValidSnapshot(snapshot) {
+  return snapshot.hasOwnProperty('before.json') &&
+         snapshot.hasOwnProperty('after.json') &&
+         snapshot.hasOwnProperty('command.json');
+}
+
+var helper = {
+  snapshots: function(pattern) {
+    return _.chain(glob.sync(pattern, {}))
+      .reduce(loadSnapshotFile, {})
+      .values()
+      .filter(isValidSnapshot)
+      .value();
   },
 
   loadJSON: function(path) {

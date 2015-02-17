@@ -1,0 +1,192 @@
+{
+  "kind": "command_create_response",
+  "stale_commands": [
+    {
+      "kind": "command",
+      "results": [
+        {
+          "type": "label",
+          "id": 5029,
+          "name": "_",
+          "updated_at": 1424126245000
+        },
+        {
+          "type": "story",
+          "id": 2113,
+          "updated_at": 1424126245000,
+          "labels": [
+            "_"
+          ]
+        },
+        {
+          "type": "story",
+          "id": 2182,
+          "updated_at": 1424126245000,
+          "labels": [
+            "_",
+            "patterns"
+          ]
+        },
+        {
+          "type": "story",
+          "id": 2183,
+          "updated_at": 1424126245000,
+          "labels": [
+            "_",
+            "patterns"
+          ]
+        }
+      ],
+      "activity": {
+        "kind": "label_update_activity",
+        "guid": "101_251",
+        "project_version": 251,
+        "message": "Robert Brewster renamed label from 'eyes-only' to '_'",
+        "highlight": "renamed label",
+        "changes": [
+          {
+            "kind": "label",
+            "change_type": "update",
+            "id": 5029,
+            "original_values": {
+              "name": "eyes-only",
+              "updated_at": 1417547564000
+            },
+            "new_values": {
+              "name": "_",
+              "updated_at": 1424126245000
+            },
+            "name": "_"
+          },
+          {
+            "kind": "story",
+            "change_type": "update",
+            "id": 2113,
+            "original_values": {
+              "updated_at": 1418230800000,
+              "labels": [
+                "eyes-only"
+              ]
+            },
+            "new_values": {
+              "updated_at": 1424126245000,
+              "labels": [
+                "_"
+              ]
+            },
+            "name": "setup electron microscopy cirtuit measurement",
+            "story_type": "chore"
+          },
+          {
+            "kind": "story",
+            "change_type": "update",
+            "id": 2182,
+            "original_values": {
+              "updated_at": 1423328520000,
+              "labels": [
+                "eyes-only",
+                "patterns"
+              ]
+            },
+            "new_values": {
+              "updated_at": 1424126245000,
+              "labels": [
+                "_",
+                "patterns"
+              ]
+            },
+            "name": "iter7-1",
+            "story_type": "bug"
+          },
+          {
+            "kind": "story",
+            "change_type": "update",
+            "id": 2183,
+            "original_values": {
+              "updated_at": 1423328520000,
+              "labels": [
+                "eyes-only",
+                "patterns"
+              ]
+            },
+            "new_values": {
+              "updated_at": 1424126245000,
+              "labels": [
+                "_",
+                "patterns"
+              ]
+            },
+            "name": "iter7-2",
+            "story_type": "bug"
+          }
+        ],
+        "primary_resources": [
+          {
+            "kind": "label",
+            "id": 5029,
+            "name": "_"
+          }
+        ],
+        "project": {
+          "kind": "project",
+          "id": 101,
+          "name": "Skynet Defense Coordination System"
+        },
+        "performed_by": {
+          "kind": "person",
+          "id": 202,
+          "name": "Robert Brewster",
+          "initials": "rb"
+        },
+        "occurred_at": 1424126245000
+      },
+      "mutandum": [
+        {
+          "type": "label",
+          "id": 5029,
+          "name": "eyes-only",
+          "updated_at": 1417547564000
+        },
+        {
+          "type": "story",
+          "id": 2113,
+          "updated_at": 1418230800000,
+          "labels": [
+            "eyes-only"
+          ]
+        },
+        {
+          "type": "story",
+          "id": 2182,
+          "updated_at": 1423328520000,
+          "labels": [
+            "eyes-only",
+            "patterns"
+          ]
+        },
+        {
+          "type": "story",
+          "id": 2183,
+          "updated_at": 1423328520000,
+          "labels": [
+            "eyes-only",
+            "patterns"
+          ]
+        }
+      ],
+      "parameters": {
+        "name": "_",
+        "id": 5029
+      },
+      "person_id": 202,
+      "type": "label_update",
+      "command_uuid": "60a42480-4995-45fb-9f4f-3042d7e5a2f9",
+      "project": {
+        "id": 101,
+        "version": 251
+      }
+    }
+  ],
+  "session_expires_at": 1424140644000,
+  "result": "stale"
+}
