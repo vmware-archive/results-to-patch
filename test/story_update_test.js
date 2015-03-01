@@ -1,21 +1,24 @@
-var _                = require('lodash');
-var chai             = require('chai');
-var expect           = chai.expect;
-var patchAssertion   = require('./patch_assertion');
-var helper           = require('./helper');
-var commandToPatch   = require('../lib/convert.js');
-var compress         = require('../lib/compress.js');
+var _              = require('lodash');
+var chai           = require('chai');
+var expect         = chai.expect;
+var patchAssertion = require('./patch_assertion');
+var helper         = require('./helper');
+var commandToPatch = require('../lib/convert.js');
+var compress       = require('../lib/compress.js');
+var Immutable      = require('immutable');
+
 chai.Assertion.addMethod('patch', patchAssertion);
 
 var FIXTURES = './test/fixtures/**/*.json';
+// var FIXTURES = './test/fixtures/CommentCreate_*/*.json';
 
 helper.snapshots(FIXTURES).forEach(function(snapshot) {
   it('creates a patch for ' + snapshot.name, function() {
-    var before  = snapshot['before.json'];
-    var after   = snapshot['after.json'];
+    var before  = Immutable.fromJS(snapshot['before.json']);
+    var after   = Immutable.fromJS(snapshot['after.json']);
     var command = snapshot['command.json'].stale_commands[0];
     var patch   = commandToPatch(before, command).forward;
-    patch = compress(patch);
+    patch = patch;
 
     expect(patch).to.patch(before, after);
   });

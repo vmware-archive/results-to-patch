@@ -3,6 +3,7 @@ var path      = require('path');
 var glob      = require('glob');
 var _         = require('lodash');
 var jsonPatch = require('fast-json-patch');
+var immpatch  = require('immpatch');
 
 function loadSnapshotFile(groupedSnapshots, filepath) {
   var dirname = path.dirname(filepath);
@@ -36,9 +37,10 @@ var helper = {
   },
 
   patch: function(original, patch) {
-    var patched = helper.clone(original);
-    jsonPatch.apply(patched, patch);
-    return patched;
+    // var patched = helper.clone(original);
+    // jsonPatch.apply(patched, patch);
+    // return patched;
+    return immpatch(original, patch);
   },
 
   indexOfStory: function(project, id) {

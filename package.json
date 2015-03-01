@@ -10,6 +10,9 @@
   "license": " ",
   "dependencies": {
     "fast-json-patch": "^0.5.0",
+    "immpatch": "^0.1.1",
+    "immutable": "^3.6.2",
+    "immutablepatch": "^0.2.0",
     "json-diff-patch": "0.0.1",
     "json-patch-gen": "^1.0.2",
     "json-pointer": "^0.2.2",
