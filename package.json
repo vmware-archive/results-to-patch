@@ -2,7 +2,7 @@
   "name": "results-to-patch",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib/convert.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
