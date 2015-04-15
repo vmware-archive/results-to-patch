@@ -3,7 +3,7 @@ var chai             = require('chai');
 var expect           = chai.expect;
 var patchAssertion   = require('./patch_assertion');
 var helper           = require('./helper');
-var commandToPatch   = require('../lib/convert.js');
+var parse            = require('../lib/parser.js');
 var compress         = require('../lib/compress.js');
 chai.Assertion.addMethod('patch', patchAssertion);
 
@@ -14,7 +14,7 @@ helper.snapshots(FIXTURES).forEach(function(snapshot) {
     var before  = snapshot['before.json'];
     var after   = snapshot['after.json'];
     var command = snapshot['command.json'].stale_commands[0];
-    var patch   = commandToPatch(before, command).forward;
+    var patch   = parse(before, command).forward;
     patch = compress(patch);
 
     expect(patch).to.patch(before, after);
