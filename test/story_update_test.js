@@ -28,7 +28,6 @@ helper.snapshots(FIXTURES).forEach(function(snapshot) {
 //     var after = snapshot.after;
 //     var command = snapshot.command.stale_commands[0];
 //     var patch = commandToPatch(before, command);
-
 //     expect(patch.reverse).to.patch(after, before);
 //   });
 // });
