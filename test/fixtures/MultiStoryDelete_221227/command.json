@@ -21,7 +21,7 @@
             "kind": "story",
             "change_type": "delete",
             "id": 2178,
-            "name": "control char->\u000B<-> Андрей Шео <-control char",
+            "name": "control char->\u000b<-> Андрей Шео <-control char",
             "story_type": "bug"
           }
         ],
@@ -29,7 +29,7 @@
           {
             "kind": "story",
             "id": 2178,
-            "name": "control char->\u000B<-> Андрей Шео <-control char",
+            "name": "control char->\u000b<-> Андрей Шео <-control char",
             "story_type": "bug",
             "url": "http://localhost/story/show/2178"
           }
@@ -52,8 +52,8 @@
           "type": "story",
           "id": 2178,
           "project_id": 101,
-          "name": "control char->\u000B<-> Андрей Шео <-control char",
-          "description": "control char->\u000B<-> Андрей Шео <-control char",
+          "name": "control char->\u000b<-> Андрей Шео <-control char",
+          "description": "control char->\u000b<-> Андрей Шео <-control char",
           "story_type": "bug",
           "current_state": "unstarted",
           "estimate": -1,

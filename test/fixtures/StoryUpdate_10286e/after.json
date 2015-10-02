@@ -35,12 +35,8 @@
       "description": "Metal and water - same or different?",
       "current_state": "accepted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
+      "owner_ids": [],
+      "label_ids": [],
       "tasks": [
         {
           "id": 5027,
@@ -57,12 +53,8 @@
           "updated_at": 1415466000000
         }
       ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2187,
@@ -74,21 +66,11 @@
       "name": "Develop facial recognition",
       "current_state": "accepted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2188,
@@ -99,9 +81,7 @@
       "name": "Machine chainsaw arms",
       "current_state": "delivered",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5031
       ],
@@ -121,12 +101,8 @@
           "updated_at": 1415466030000
         }
       ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2189,
@@ -138,21 +114,11 @@
       "description": "BEEP boop",
       "current_state": "started",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2190,
@@ -167,18 +133,10 @@
       "owner_ids": [
         202
       ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 202
     },
     {
@@ -191,21 +149,13 @@
       "description": "We should prevent killing of Glen, when possible",
       "current_state": "unstarted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5031
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2192,
@@ -216,12 +166,8 @@
       "description": "BEEP boop",
       "current_state": "unstarted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
+      "owner_ids": [],
+      "label_ids": [],
       "tasks": [
         {
           "id": 5031,
@@ -245,12 +191,8 @@
           "updated_at": 1415466090000
         }
       ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2193,
@@ -262,21 +204,11 @@
       "description": "Get thread for meatbag clothing, learn how to sew",
       "current_state": "unstarted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2194,
@@ -286,21 +218,13 @@
       "name": "Unit can liquify self",
       "current_state": "unstarted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5031
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2195,
@@ -310,21 +234,11 @@
       "name": "Unit go back in time",
       "current_state": "unstarted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2196,
@@ -336,21 +250,11 @@
       "description": "Kill John Connor",
       "current_state": "unstarted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2197,
@@ -361,21 +265,11 @@
       "description": "Step 4: Profit!",
       "current_state": "unstarted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2199,
@@ -386,21 +280,11 @@
       "description": "BEEP boop",
       "current_state": "unscheduled",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2198,
@@ -411,21 +295,13 @@
       "name": "Acquire noxious gases",
       "current_state": "unscheduled",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5031
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     }
   ],
   "epics": [
@@ -435,12 +311,8 @@
       "updated_at": 1415466195000,
       "name": "Kill all those destructive humans",
       "label_id": 5031,
-      "comments": [
-
-      ],
-      "follower_ids": [
-
-      ],
+      "comments": [],
+      "follower_ids": [],
       "past_done_stories_count": 0,
       "past_done_stories_no_point_count": 0,
       "past_done_story_estimates": 0
@@ -588,8 +460,8 @@
       "will_receive_mention_notifications_or_emails": true,
       "person": {
         "id": 211,
-        "name": "John cc>\u000B<cc Анд",
-        "initials": "J\u000BАнд",
+        "name": "John cc>\u000b<cc Анд",
+        "initials": "J\u000bАнд",
         "username": "john"
       }
     }
@@ -602,12 +474,8 @@
       "updated_at": 1420909320000
     }
   ],
-  "integrations": [
-
-  ],
-  "iteration_overrides": [
-
-  ],
+  "integrations": [],
+  "iteration_overrides": [],
   "account": {
     "kind": "account_summary",
     "id": 1026,

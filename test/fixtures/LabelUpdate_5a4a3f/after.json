@@ -52,9 +52,7 @@
       "follower_ids": [
         202
       ],
-      "tasks": [
-
-      ],
+      "tasks": [],
       "comments": [
         {
           "id": 201,
@@ -62,12 +60,8 @@
           "person_id": 202,
           "created_at": 1417546860000,
           "updated_at": 1417546860000,
-          "file_attachments": [
-
-          ],
-          "google_attachments": [
-
-          ]
+          "file_attachments": [],
+          "google_attachments": []
         }
       ]
     },
@@ -88,15 +82,9 @@
       "label_ids": [
         5029
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2114,
@@ -112,18 +100,10 @@
       "owner_ids": [
         211
       ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2112,
@@ -142,15 +122,9 @@
       "label_ids": [
         5026
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2128,
@@ -162,21 +136,11 @@
       "created_at": 1417894860000,
       "updated_at": 1418758916000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2110,
@@ -196,15 +160,9 @@
       "label_ids": [
         5024
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2126,
@@ -217,21 +175,11 @@
       "created_at": 1417894260000,
       "updated_at": 1418859032000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2116,
@@ -252,15 +200,9 @@
         5025,
         5024
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2111,
@@ -280,15 +222,9 @@
       "label_ids": [
         5028
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2141,
@@ -308,15 +244,9 @@
       "label_ids": [
         5026
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2117,
@@ -336,15 +266,9 @@
       "label_ids": [
         5025
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2144,
@@ -364,15 +288,9 @@
       "label_ids": [
         5026
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2142,
@@ -392,19 +310,13 @@
       "label_ids": [
         5026
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2115,
-      "name": "control char->\u000B<-> Андрей Шео <-control char",
+      "name": "control char->\u000b<-> Андрей Шео <-control char",
       "description": "new description 310",
       "story_type": "chore",
       "current_state": "accepted",
@@ -416,18 +328,10 @@
       "owner_ids": [
         210
       ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2119,
@@ -480,12 +384,8 @@
           "person_id": 202,
           "created_at": 1417547989000,
           "updated_at": 1417547989000,
-          "file_attachments": [
-
-          ],
-          "google_attachments": [
-
-          ]
+          "file_attachments": [],
+          "google_attachments": []
         },
         {
           "id": 203,
@@ -508,9 +408,7 @@
               "big_url": "#"
             }
           ],
-          "google_attachments": [
-
-          ]
+          "google_attachments": []
         },
         {
           "id": 204,
@@ -518,9 +416,7 @@
           "person_id": 202,
           "created_at": 1417548289000,
           "updated_at": 1417548289000,
-          "file_attachments": [
-
-          ],
+          "file_attachments": [],
           "google_attachments": [
             {
               "id": 201,
@@ -562,19 +458,13 @@
       "label_ids": [
         5025
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2152,
-      "name": "control char->\u000B<-> Андрей Шео <-control char",
+      "name": "control char->\u000b<-> Андрей Шео <-control char",
       "description": "new description 362",
       "story_type": "feature",
       "current_state": "accepted",
@@ -587,18 +477,10 @@
       "owner_ids": [
         207
       ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2151,
@@ -615,18 +497,10 @@
       "owner_ids": [
         207
       ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2127,
@@ -639,21 +513,11 @@
       "created_at": 1417894800000,
       "updated_at": 1420668962000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2158,
@@ -674,15 +538,9 @@
       "label_ids": [
         5024
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2159,
@@ -702,15 +560,9 @@
       "label_ids": [
         5024
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2145,
@@ -730,15 +582,9 @@
       "label_ids": [
         5026
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2143,
@@ -758,15 +604,9 @@
       "label_ids": [
         5026
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2160,
@@ -787,15 +627,9 @@
       "label_ids": [
         5024
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2156,
@@ -815,15 +649,9 @@
       "label_ids": [
         5025
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2157,
@@ -843,15 +671,9 @@
       "label_ids": [
         5025
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2171,
@@ -862,21 +684,11 @@
       "created_at": 1421514000000,
       "updated_at": 1421514000000,
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2166,
@@ -894,15 +706,9 @@
       "label_ids": [
         5027
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2120,
@@ -921,15 +727,9 @@
       "label_ids": [
         5025
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2177,
@@ -944,15 +744,11 @@
       "owner_ids": [
         204
       ],
-      "label_ids": [
-
-      ],
+      "label_ids": [],
       "follower_ids": [
         205
       ],
-      "tasks": [
-
-      ],
+      "tasks": [],
       "comments": [
         {
           "id": 205,
@@ -962,12 +758,8 @@
           "updated_at": 1422723615000,
           "commit_identifier": "e33914f666be819029aec3e30204d4b585d86962",
           "commit_type": "github",
-          "file_attachments": [
-
-          ],
-          "google_attachments": [
-
-          ]
+          "file_attachments": [],
+          "google_attachments": []
         }
       ]
     },
@@ -980,22 +772,12 @@
       "updated_at": 1422723600000,
       "external_id": "mYm15LEDPBU",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "integration_id": 54,
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2174,
@@ -1005,21 +787,11 @@
       "created_at": 1422723600000,
       "updated_at": 1422723600000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2173,
@@ -1029,21 +801,11 @@
       "created_at": 1422723600000,
       "updated_at": 1422723600000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2172,
@@ -1053,21 +815,11 @@
       "created_at": 1422723600000,
       "updated_at": 1422723600000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2176,
@@ -1078,21 +830,11 @@
       "created_at": 1422723600000,
       "updated_at": 1422723600000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2121,
@@ -1103,46 +845,28 @@
       "created_at": 1417547894000,
       "updated_at": 1420310820000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5025
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2178,
-      "name": "control char->\u000B<-> Андрей Шео <-control char",
-      "description": "control char->\u000B<-> Андрей Шео <-control char",
+      "name": "control char->\u000b<-> Андрей Шео <-control char",
+      "description": "control char->\u000b<-> Андрей Шео <-control char",
       "story_type": "bug",
       "current_state": "unstarted",
       "created_at": 1422723615000,
       "updated_at": 1422982800000,
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2170,
@@ -1154,21 +878,13 @@
       "created_at": 1420909275000,
       "updated_at": 1422982920000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5027
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2167,
@@ -1180,21 +896,13 @@
       "created_at": 1420909275000,
       "updated_at": 1422982860000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5027
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2162,
@@ -1206,21 +914,13 @@
       "created_at": 1420477265000,
       "updated_at": 1422982980000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5024
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2161,
@@ -1232,21 +932,13 @@
       "created_at": 1420477245000,
       "updated_at": 1422983040000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5024
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2185,
@@ -1263,18 +955,10 @@
         204,
         207
       ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2184,
@@ -1289,18 +973,10 @@
       "owner_ids": [
         209
       ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2183,
@@ -1311,23 +987,15 @@
       "updated_at": 1424126323000,
       "external_id": "J---aiyznGQ",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "integration_id": 54,
       "label_ids": [
         5029,
         5024
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2182,
@@ -1337,22 +1005,14 @@
       "created_at": 1423328400000,
       "updated_at": 1424126323000,
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5029,
         5024
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2169,
@@ -1362,21 +1022,13 @@
       "created_at": 1420909275000,
       "updated_at": 1420909275000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5027
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2168,
@@ -1386,21 +1038,13 @@
       "created_at": 1420909275000,
       "updated_at": 1420909275000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5027
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2165,
@@ -1410,21 +1054,11 @@
       "created_at": 1420909200000,
       "updated_at": 1420909200000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2164,
@@ -1434,21 +1068,11 @@
       "created_at": 1420909200000,
       "updated_at": 1420909200000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2163,
@@ -1458,21 +1082,11 @@
       "created_at": 1420909200000,
       "updated_at": 1420909200000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2155,
@@ -1482,21 +1096,11 @@
       "created_at": 1420310700000,
       "updated_at": 1420310700000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2154,
@@ -1506,21 +1110,11 @@
       "created_at": 1420310700000,
       "updated_at": 1420310700000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2153,
@@ -1530,21 +1124,11 @@
       "created_at": 1420310700000,
       "updated_at": 1420310700000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2150,
@@ -1554,21 +1138,11 @@
       "created_at": 1419094800000,
       "updated_at": 1419094800000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2149,
@@ -1578,21 +1152,11 @@
       "created_at": 1419094800000,
       "updated_at": 1419094800000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2148,
@@ -1602,21 +1166,11 @@
       "created_at": 1419094800000,
       "updated_at": 1419094800000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2147,
@@ -1626,21 +1180,11 @@
       "created_at": 1419094800000,
       "updated_at": 1419094800000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2146,
@@ -1650,21 +1194,11 @@
       "created_at": 1419094800000,
       "updated_at": 1419094800000,
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2140,
@@ -1674,21 +1208,11 @@
       "created_at": 1417971600000,
       "updated_at": 1417971600000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2139,
@@ -1698,21 +1222,11 @@
       "created_at": 1417971600000,
       "updated_at": 1417971600000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2138,
@@ -1722,21 +1236,11 @@
       "created_at": 1417971600000,
       "updated_at": 1417971600000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2137,
@@ -1746,21 +1250,11 @@
       "created_at": 1417971600000,
       "updated_at": 1417971600000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2136,
@@ -1770,21 +1264,11 @@
       "created_at": 1417971600000,
       "updated_at": 1417971600000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2135,
@@ -1794,21 +1278,11 @@
       "created_at": 1417896300000,
       "updated_at": 1417896300000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2134,
@@ -1818,21 +1292,11 @@
       "created_at": 1417896240000,
       "updated_at": 1417896240000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2133,
@@ -1842,21 +1306,11 @@
       "created_at": 1417896180000,
       "updated_at": 1417896180000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2132,
@@ -1866,21 +1320,11 @@
       "created_at": 1417896120000,
       "updated_at": 1417896120000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2131,
@@ -1890,21 +1334,11 @@
       "created_at": 1417896060000,
       "updated_at": 1417896060000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2130,
@@ -1914,21 +1348,11 @@
       "created_at": 1417896000000,
       "updated_at": 1417896000000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2129,
@@ -1938,21 +1362,11 @@
       "created_at": 1417895940000,
       "updated_at": 1417895940000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2125,
@@ -1962,21 +1376,11 @@
       "created_at": 1417894200000,
       "updated_at": 1417894200000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2124,
@@ -1986,21 +1390,11 @@
       "created_at": 1417548409000,
       "updated_at": 1417548409000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2123,
@@ -2010,21 +1404,11 @@
       "created_at": 1417548349000,
       "updated_at": 1417548349000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2122,
@@ -2034,21 +1418,11 @@
       "created_at": 1417548289000,
       "updated_at": 1417548289000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2109,
@@ -2058,21 +1432,11 @@
       "created_at": 1417546920000,
       "updated_at": 1417546920000,
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2179,
@@ -2083,21 +1447,13 @@
       "created_at": 1423069200000,
       "updated_at": 1423069200000,
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5028
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2180,
@@ -2108,21 +1464,13 @@
       "created_at": 1423069200000,
       "updated_at": 1423069200000,
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5028
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     },
     {
       "id": 2181,
@@ -2133,21 +1481,13 @@
       "created_at": 1423069200000,
       "updated_at": 1423069200000,
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5028
       ],
-      "follower_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "tasks": [],
+      "comments": []
     }
   ],
   "epics": [
@@ -2160,12 +1500,8 @@
       "past_done_stories_count": 3,
       "past_done_stories_no_point_count": 1,
       "label_id": 5024,
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2001,
@@ -2176,12 +1512,8 @@
       "past_done_stories_count": 1,
       "past_done_stories_no_point_count": 0,
       "label_id": 5025,
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2003,
@@ -2202,12 +1534,8 @@
           "person_id": 202,
           "created_at": 1423328460000,
           "updated_at": 1423328460000,
-          "file_attachments": [
-
-          ],
-          "google_attachments": [
-
-          ]
+          "file_attachments": [],
+          "google_attachments": []
         }
       ]
     },
@@ -2220,12 +1548,8 @@
       "past_done_stories_count": 1,
       "past_done_stories_no_point_count": 1,
       "label_id": 5026,
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2004,
@@ -2236,12 +1560,8 @@
       "past_done_stories_count": 1,
       "past_done_stories_no_point_count": 0,
       "label_id": 5028,
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2005,
@@ -2252,12 +1572,8 @@
       "past_done_stories_count": 0,
       "past_done_stories_no_point_count": 0,
       "label_id": 5030,
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "follower_ids": [],
+      "comments": []
     }
   ],
   "labels": [
@@ -2443,9 +1759,9 @@
       "will_receive_mention_notifications_or_emails": true,
       "person": {
         "id": 211,
-        "name": "John cc>\u000B<cc Анд",
+        "name": "John cc>\u000b<cc Анд",
         "email": "jАнд@example.com",
-        "initials": "J\u000BАнд",
+        "initials": "J\u000bАнд",
         "username": "john"
       }
     }
@@ -2540,7 +1856,7 @@
     {
       "number": 3,
       "length": 2,
-      "team_strength": 1.0
+      "team_strength": 1
     },
     {
       "number": 4,

@@ -41,15 +41,9 @@
       "label_ids": [
         5026
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 204
     },
     {
@@ -69,15 +63,9 @@
       "label_ids": [
         5025
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 207
     },
     {
@@ -97,15 +85,9 @@
       "label_ids": [
         5026
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 211
     },
     {
@@ -125,15 +107,9 @@
       "label_ids": [
         5026
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 204
     },
     {
@@ -142,25 +118,17 @@
       "updated_at": 1417453200000,
       "accepted_at": 1417453200000,
       "story_type": "chore",
-      "name": "control char->\u000B<-> Андрей Шео <-control char",
+      "name": "control char->\u000b<-> Андрей Шео <-control char",
       "description": "new description 310",
       "current_state": "accepted",
       "requested_by_id": 201,
       "owner_ids": [
         210
       ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 210
     },
     {
@@ -213,12 +181,8 @@
           "person_id": 202,
           "created_at": 1415128789000,
           "updated_at": 1415128789000,
-          "file_attachments": [
-
-          ],
-          "google_attachments": [
-
-          ]
+          "file_attachments": [],
+          "google_attachments": []
         },
         {
           "id": 203,
@@ -241,9 +205,7 @@
               "big_url": "#"
             }
           ],
-          "google_attachments": [
-
-          ]
+          "google_attachments": []
         },
         {
           "id": 204,
@@ -251,9 +213,7 @@
           "person_id": 202,
           "created_at": 1415129089000,
           "updated_at": 1415129089000,
-          "file_attachments": [
-
-          ],
+          "file_attachments": [],
           "google_attachments": [
             {
               "id": 201,
@@ -295,15 +255,9 @@
       "label_ids": [
         5025
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 206
     },
     {
@@ -313,25 +267,17 @@
       "accepted_at": 1418162400000,
       "estimate": 1,
       "story_type": "feature",
-      "name": "control char->\u000B<-> Андрей Шео <-control char",
+      "name": "control char->\u000b<-> Андрей Шео <-control char",
       "description": "new description 362",
       "current_state": "accepted",
       "requested_by_id": 202,
       "owner_ids": [
         207
       ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 207
     },
     {
@@ -348,18 +294,10 @@
       "owner_ids": [
         207
       ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 207
     },
     {
@@ -373,21 +311,11 @@
       "description": "new description 382",
       "current_state": "accepted",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2158,
@@ -407,15 +335,9 @@
       "label_ids": [
         5024
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 204
     },
     {
@@ -435,15 +357,9 @@
       "label_ids": [
         5024
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 210
     },
     {
@@ -463,15 +379,9 @@
       "label_ids": [
         5026
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 204
     },
     {
@@ -491,15 +401,9 @@
       "label_ids": [
         5026
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 211
     },
     {
@@ -520,15 +424,9 @@
       "label_ids": [
         5024
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 207
     },
     {
@@ -548,15 +446,9 @@
       "label_ids": [
         5025
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 206
     },
     {
@@ -576,15 +468,9 @@
       "label_ids": [
         5025
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 206
     },
     {
@@ -596,21 +482,11 @@
       "name": "have comprehensive input processing",
       "current_state": "unstarted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2166,
@@ -627,15 +503,9 @@
       "label_ids": [
         5027
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 202
     },
     {
@@ -654,15 +524,9 @@
       "label_ids": [
         5025
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 206
     },
     {
@@ -677,12 +541,8 @@
       "owner_ids": [
         204
       ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
+      "label_ids": [],
+      "tasks": [],
       "follower_ids": [
         205
       ],
@@ -695,12 +555,8 @@
           "commit_type": "github",
           "created_at": 1420304415000,
           "updated_at": 1420304415000,
-          "file_attachments": [
-
-          ],
-          "google_attachments": [
-
-          ]
+          "file_attachments": [],
+          "google_attachments": []
         }
       ],
       "owned_by_id": 204
@@ -719,18 +575,10 @@
         209,
         202
       ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 209
     },
     {
@@ -743,21 +591,11 @@
       "requested_by_id": 202,
       "external_id": "mYm15LEDPBU",
       "integration_id": 54,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2174,
@@ -767,21 +605,11 @@
       "name": "sperm whales are not attack submarines",
       "current_state": "unstarted",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2173,
@@ -791,21 +619,11 @@
       "name": "don't confuse volcanoes with missle launches",
       "current_state": "unstarted",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2172,
@@ -815,21 +633,11 @@
       "name": "don't mistake passenger jets for bombers",
       "current_state": "unstarted",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2176,
@@ -840,21 +648,11 @@
       "name": "fix bugs identified by field trials",
       "current_state": "unstarted",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2121,
@@ -865,46 +663,28 @@
       "name": "Accept input data stream from NSA internet scanning",
       "current_state": "unstarted",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5025
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2178,
       "created_at": 1420304415000,
       "updated_at": 1420563600000,
       "story_type": "bug",
-      "name": "control char->\u000B<-> Андрей Шео <-control char",
-      "description": "control char->\u000B<-> Андрей Шео <-control char",
+      "name": "control char->\u000b<-> Андрей Шео <-control char",
+      "description": "control char->\u000b<-> Андрей Шео <-control char",
       "current_state": "unstarted",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2170,
@@ -916,21 +696,13 @@
       "description": "new description 453",
       "current_state": "unstarted",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5027
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2167,
@@ -942,21 +714,13 @@
       "description": "new description 451",
       "current_state": "unstarted",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5027
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2162,
@@ -968,21 +732,13 @@
       "description": "new description 455",
       "current_state": "unstarted",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5024
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2161,
@@ -994,21 +750,13 @@
       "description": "new description 457",
       "current_state": "unstarted",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5024
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2185,
@@ -1024,18 +772,10 @@
         204,
         207
       ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": [],
       "owned_by_id": 209
     },
     {
@@ -1048,22 +788,14 @@
       "requested_by_id": 205,
       "external_id": "J---aiyznGQ",
       "integration_id": 54,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5029,
         5024
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2182,
@@ -1073,22 +805,14 @@
       "name": "iter7-1",
       "current_state": "unscheduled",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5029,
         5024
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2169,
@@ -1098,21 +822,13 @@
       "name": "command-3",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5027
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2168,
@@ -1122,21 +838,13 @@
       "name": "command-2",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5027
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2165,
@@ -1146,21 +854,11 @@
       "name": "iter5-3",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2164,
@@ -1170,21 +868,11 @@
       "name": "iter5-2",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2163,
@@ -1194,21 +882,11 @@
       "name": "iter5-1",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2155,
@@ -1218,21 +896,11 @@
       "name": "iter4-3",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2154,
@@ -1242,21 +910,11 @@
       "name": "iter4-2",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2153,
@@ -1266,21 +924,11 @@
       "name": "iter4-1",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2150,
@@ -1290,21 +938,11 @@
       "name": "iter3-5",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2149,
@@ -1314,21 +952,11 @@
       "name": "iter3-4",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2148,
@@ -1338,21 +966,11 @@
       "name": "iter3-3",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2147,
@@ -1362,21 +980,11 @@
       "name": "iter3-2",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2146,
@@ -1386,21 +994,11 @@
       "name": "iter3-1",
       "current_state": "unscheduled",
       "requested_by_id": 202,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2140,
@@ -1410,21 +1008,11 @@
       "name": "iter2-5",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2139,
@@ -1434,21 +1022,11 @@
       "name": "iter2-4",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2138,
@@ -1458,21 +1036,11 @@
       "name": "iter2-3",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2137,
@@ -1482,21 +1050,11 @@
       "name": "iter2-2",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2136,
@@ -1506,21 +1064,11 @@
       "name": "iter2-1",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2135,
@@ -1530,21 +1078,11 @@
       "name": "iter1-9",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2134,
@@ -1554,21 +1092,11 @@
       "name": "iter1-8",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2133,
@@ -1578,21 +1106,11 @@
       "name": "iter1-7",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2132,
@@ -1602,21 +1120,11 @@
       "name": "iter1-6",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2131,
@@ -1626,21 +1134,11 @@
       "name": "iter1-5",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2130,
@@ -1650,21 +1148,11 @@
       "name": "iter1-4",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2129,
@@ -1674,21 +1162,11 @@
       "name": "iter1-3",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2125,
@@ -1698,21 +1176,11 @@
       "name": "iter1-1",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2124,
@@ -1722,21 +1190,11 @@
       "name": "iter0-9",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2123,
@@ -1746,21 +1204,11 @@
       "name": "iter0-8",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2122,
@@ -1770,21 +1218,11 @@
       "name": "iter0-7",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2109,
@@ -1794,21 +1232,11 @@
       "name": "iter0-2",
       "current_state": "unscheduled",
       "requested_by_id": 201,
-      "owner_ids": [
-
-      ],
-      "label_ids": [
-
-      ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "owner_ids": [],
+      "label_ids": [],
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2179,
@@ -1819,21 +1247,13 @@
       "name": "automated replacement of down server modules from spares",
       "current_state": "unscheduled",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5028
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2180,
@@ -1844,21 +1264,13 @@
       "name": "demand-based datacenter repartitioning",
       "current_state": "unscheduled",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5028
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     },
     {
       "id": 2181,
@@ -1869,21 +1281,13 @@
       "name": "peer-to-peer dynamic topology data backup",
       "current_state": "unscheduled",
       "requested_by_id": 205,
-      "owner_ids": [
-
-      ],
+      "owner_ids": [],
       "label_ids": [
         5028
       ],
-      "tasks": [
-
-      ],
-      "follower_ids": [
-
-      ],
-      "comments": [
-
-      ]
+      "tasks": [],
+      "follower_ids": [],
+      "comments": []
     }
   ],
   "epics": [
@@ -1893,12 +1297,8 @@
       "updated_at": 1415128200000,
       "name": "Pattern discrimination in activity",
       "label_id": 5024,
-      "comments": [
-
-      ],
-      "follower_ids": [
-
-      ],
+      "comments": [],
+      "follower_ids": [],
       "past_done_stories_count": 3,
       "past_done_stories_no_point_count": 1,
       "past_done_story_estimates": 5
@@ -1909,12 +1309,8 @@
       "updated_at": 1415127960000,
       "name": "Information monitoring and forward",
       "label_id": 5025,
-      "comments": [
-
-      ],
-      "follower_ids": [
-
-      ],
+      "comments": [],
+      "follower_ids": [],
       "past_done_stories_count": 1,
       "past_done_stories_no_point_count": 0,
       "past_done_story_estimates": 2
@@ -1932,12 +1328,8 @@
           "person_id": 202,
           "created_at": 1420909260000,
           "updated_at": 1420909260000,
-          "file_attachments": [
-
-          ],
-          "google_attachments": [
-
-          ]
+          "file_attachments": [],
+          "google_attachments": []
         }
       ],
       "follower_ids": [
@@ -1953,12 +1345,8 @@
       "updated_at": 1415128206000,
       "name": "Strategic recommendation generation",
       "label_id": 5026,
-      "comments": [
-
-      ],
-      "follower_ids": [
-
-      ],
+      "comments": [],
+      "follower_ids": [],
       "past_done_stories_count": 1,
       "past_done_stories_no_point_count": 1,
       "past_done_story_estimates": 0
@@ -1969,12 +1357,8 @@
       "updated_at": 1415128201000,
       "name": "Deployment",
       "label_id": 5028,
-      "comments": [
-
-      ],
-      "follower_ids": [
-
-      ],
+      "comments": [],
+      "follower_ids": [],
       "past_done_stories_count": 1,
       "past_done_stories_no_point_count": 0,
       "past_done_story_estimates": 2
@@ -1985,12 +1369,8 @@
       "updated_at": 1418490015000,
       "name": "Weapon system automation/remote control",
       "label_id": 5030,
-      "comments": [
-
-      ],
-      "follower_ids": [
-
-      ],
+      "comments": [],
+      "follower_ids": [],
       "past_done_stories_count": 0,
       "past_done_stories_no_point_count": 0,
       "past_done_story_estimates": 0
@@ -2126,8 +1506,8 @@
       "will_receive_mention_notifications_or_emails": true,
       "person": {
         "id": 211,
-        "name": "John cc>\u000B<cc Анд",
-        "initials": "J\u000BАнд",
+        "name": "John cc>\u000b<cc Анд",
+        "initials": "J\u000bАнд",
         "username": "john"
       }
     },
@@ -2277,7 +1657,7 @@
     {
       "number": 3,
       "length": 2,
-      "team_strength": 1.0
+      "team_strength": 1
     },
     {
       "number": 4,

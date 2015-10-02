@@ -23,7 +23,7 @@
             "number": 8,
             "original_values": {
               "number": 8,
-              "team_strength": 1.0
+              "team_strength": 1
             },
             "new_values": {
               "number": 8,
@@ -54,7 +54,7 @@
         {
           "type": "iteration",
           "number": 8,
-          "team_strength": 1.0
+          "team_strength": 1
         }
       ],
       "parameters": {

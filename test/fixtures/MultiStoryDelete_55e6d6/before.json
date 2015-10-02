@@ -118,7 +118,7 @@
       "updated_at": 1417453200000,
       "accepted_at": 1417453200000,
       "story_type": "chore",
-      "name": "control char->\u000B<-> Андрей Шео <-control char",
+      "name": "control char->\u000b<-> Андрей Шео <-control char",
       "description": "new description 310",
       "current_state": "accepted",
       "requested_by_id": 201,
@@ -267,7 +267,7 @@
       "accepted_at": 1418162400000,
       "estimate": 1,
       "story_type": "feature",
-      "name": "control char->\u000B<-> Андрей Шео <-control char",
+      "name": "control char->\u000b<-> Андрей Шео <-control char",
       "description": "new description 362",
       "current_state": "accepted",
       "requested_by_id": 202,
@@ -1373,8 +1373,8 @@
       "will_receive_mention_notifications_or_emails": true,
       "person": {
         "id": 211,
-        "name": "John cc>\u000B<cc Анд",
-        "initials": "J\u000BАнд",
+        "name": "John cc>\u000b<cc Анд",
+        "initials": "J\u000bАнд",
         "username": "john"
       }
     },
@@ -1536,7 +1536,7 @@
     {
       "number": 3,
       "length": 2,
-      "team_strength": 1.0
+      "team_strength": 1
     },
     {
       "number": 4,
