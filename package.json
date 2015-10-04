@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/mocha",
+    "watch": "./node_modules/.bin/mocha --compilers js:babel/register -w"
   },
   "author": "",
   "license": " ",
@@ -20,6 +21,7 @@
     "spahql": "^0.7.6"
   },
   "devDependencies": {
+    "babel": "^5.8.23",
     "chai": "^1.10.0",
     "glob": "^4.3.5",
     "mocha": "^2.1.0",
