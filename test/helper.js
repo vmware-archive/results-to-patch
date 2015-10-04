@@ -18,12 +18,25 @@ function isValidSnapshot(snapshot) {
          snapshot.hasOwnProperty('command.json');
 }
 
+function deepFreeze(obj) {
+  var propNames = Object.getOwnPropertyNames(obj);
+
+  propNames.forEach(function(name) {
+    var prop = obj[name];
+    if (prop && typeof prop == 'object' && !Object.isFrozen(prop))
+      deepFreeze(prop);
+  });
+
+  return Object.freeze(obj);
+}
+
 var helper = {
   snapshots: function(pattern) {
     return _.chain(glob.sync(pattern, {}))
       .reduce(loadSnapshotFile, {})
       .values()
       .filter(isValidSnapshot)
+      .map(deepFreeze)
       .value();
   },
 
