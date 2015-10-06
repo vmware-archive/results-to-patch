@@ -7,7 +7,7 @@ var resultsToPatch   = require('../lib');
 chai.Assertion.addMethod('patch', patchAssertion);
 
 // var FIXTURES = './test/fixtures/MultiStoryMoveIntoProjectAndPrioritize_6482f5/*.json';
-// var FIXTURES = './test/fixtures/CommentDelete*/*.json';
+// var FIXTURES = './test/fixtures/MultiStoryMove*/*.json';
 var FIXTURES = './test/fixtures/**/*.json';
 
 helper.snapshots(FIXTURES).forEach(function(snapshot) {
