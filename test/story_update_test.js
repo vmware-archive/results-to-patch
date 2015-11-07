@@ -6,9 +6,9 @@ var helper           = require('./helper');
 var resultsToPatch   = require('../lib');
 chai.Assertion.addMethod('patch', patchAssertion);
 
-// var FIXTURES = './test/fixtures/MultiStoryMoveIntoProjectAndPrioritize_6482f5/*.json';
-// var FIXTURES = './test/fixtures/LabelUpdate*/*.json';
 var FIXTURES = './test/fixtures/**/*.json';
+// var FIXTURES = './test/fixtures/*StoryUpdate*/*.json';
+// var FIXTURES = './test/fixtures/StoryUpdate_710d16/*.json';
 
 helper.snapshots(FIXTURES).forEach(function(snapshot) {
   it('creates a patch for ' + snapshot.name, function() {
