@@ -6,9 +6,10 @@ var helper           = require('./helper');
 var resultsToPatch   = require('../lib');
 chai.Assertion.addMethod('patch', patchAssertion);
 
-var FIXTURES = './test/fixtures/**/*.json';
+// var FIXTURES = './test/fixtures/**/*.json';
 // var FIXTURES = './test/fixtures/*StoryUpdate*/*.json';
 // var FIXTURES = './test/fixtures/StoryUpdate_710d16/*.json';
+var FIXTURES = './test/fixtures/IterationUpdate_528a71/*.json';
 
 helper.snapshots(FIXTURES).forEach(function(snapshot) {
   it('creates a patch for ' + snapshot.name, function() {
@@ -16,9 +17,9 @@ helper.snapshots(FIXTURES).forEach(function(snapshot) {
     var after   = snapshot['after.json'];
     var command = snapshot['command.json'].stale_commands[0];
 
-    var state = resultsToPatch(before, command);
+    var state = resultsToPatch(before.entities, command);
 
-    expect(state).to.deep.equal(after);
+    expect(state).to.deep.equal(after.entities);
     // expect(state.stories.map(formatPosition)).to.deep.equal(after.stories.map(formatPosition));
   });
 });

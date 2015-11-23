@@ -1,8 +1,9 @@
-var fs        = require('fs');
-var path      = require('path');
-var glob      = require('glob');
-var _         = require('lodash');
-var jsonPatch = require('fast-json-patch');
+var fs         = require('fs');
+var path       = require('path');
+var glob       = require('glob');
+var _          = require('lodash');
+var jsonPatch  = require('fast-json-patch');
+var normalizer = require('../lib/normalizer');
 
 function loadSnapshotFile(groupedSnapshots, filepath) {
   var dirname = path.dirname(filepath);
@@ -16,6 +17,14 @@ function isValidSnapshot(snapshot) {
   return snapshot.hasOwnProperty('before.json') &&
          snapshot.hasOwnProperty('after.json') &&
          snapshot.hasOwnProperty('command.json');
+}
+
+function normalize(snapshot) {
+  return {
+    'before.json': normalizer(snapshot['before.json']),
+    'after.json': normalizer(snapshot['after.json']),
+    'command.json': snapshot['command.json'],
+  };
 }
 
 function deepFreeze(obj) {
@@ -36,6 +45,7 @@ var helper = {
       .reduce(loadSnapshotFile, {})
       .values()
       .filter(isValidSnapshot)
+      .map(normalize)
       .map(deepFreeze)
       .value();
   },
