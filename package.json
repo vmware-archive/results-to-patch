@@ -11,6 +11,7 @@
   "license": " ",
   "dependencies": {
     "fast-json-patch": "*",
+    "humps": "^1.0.0",
     "json-diff-patch": "*",
     "json-patch-gen": "*",
     "json-pointer": "*",
